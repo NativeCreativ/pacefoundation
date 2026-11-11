@@ -4540,3 +4540,656 @@ button {
     gap: 36px;
   }
 }
+
+/* ==========================================================================
+   BOSCH-STYLE ACCORDIONS, POP-OUT MODALS & STREAMLINED POST-SDG SECTIONS
+   ========================================================================== */
+
+/* 1. Entity Pop-out Modal Window */
+.entity-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+}
+
+.entity-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.entity-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.entity-modal-dialog {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 640px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  padding: 36px 32px 32px;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.entity-modal.active .entity-modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.entity-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.entity-modal-close:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+  border-color: #CBD5E1;
+  transform: rotate(90deg);
+}
+
+.entity-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #F1F5F9;
+  margin-bottom: 22px;
+}
+
+.entity-modal-logo-wrap {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  border-radius: 16px;
+  border: 1.5px solid #F1F5F9;
+  background: #FFFFFF;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.entity-modal-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.entity-modal-title-wrap {
+  flex: 1;
+}
+
+.entity-modal-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.entity-modal-sector {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #EC6700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.entity-modal-body {
+  margin-bottom: 28px;
+}
+
+.entity-modal-desc {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0;
+}
+
+.entity-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 18px;
+  border-top: 1px solid #F1F5F9;
+}
+
+/* 2. Bosch-Style Focus Themes Accordions */
+.bosch-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.theme-accordion-item {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.theme-accordion-item:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.theme-accordion-item.active {
+  border-color: #EC6700;
+  box-shadow: 0 10px 30px rgba(236, 103, 0, 0.1);
+}
+
+.theme-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.theme-tab-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.theme-accordion-item.active .theme-tab-title,
+.theme-accordion-item:hover .theme-tab-title {
+  color: #EC6700;
+}
+
+.accordion-arrow {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s, color 0.2s;
+}
+
+.theme-accordion-item.active .accordion-arrow,
+.dropdown-section.active .accordion-arrow {
+  transform: rotate(180deg);
+  background: #FFF7ED;
+  border-color: #FDBA74;
+  color: #EC6700;
+}
+
+.accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.theme-accordion-item.active .accordion-collapse,
+.dropdown-section.active .accordion-collapse {
+  max-height: 3500px;
+  opacity: 1;
+}
+
+.theme-accordion-body {
+  padding: 0 28px 28px 28px;
+}
+
+.theme-lead-desc {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0 0 24px 0;
+}
+
+.theme-support-wrapper {
+  background: #F8FAFC;
+  border-radius: 14px;
+  border-left: 4px solid #EC6700;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+}
+
+.support-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 14px 0;
+}
+
+.support-bullets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.support-bullets-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.support-bullets-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #EC6700;
+  font-weight: 700;
+}
+
+.theme-impact-callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF7ED;
+  border: 1px solid #FFEDD5;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 1.02rem;
+}
+
+.impact-title {
+  font-weight: 700;
+  color: #C2410C;
+}
+
+.impact-quote {
+  font-weight: 700;
+  color: #9A3412;
+  font-style: italic;
+}
+
+.theme-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.theme-photo-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 200px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+  background: #E2E8F0;
+}
+
+.theme-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-photo-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Healthcare initiatives stack */
+.healthcare-initiatives-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.healthcare-initiative-box {
+  background: #F8FAFC;
+  border-radius: 14px;
+  border: 1px solid #E2E8F0;
+  padding: 20px 24px;
+  transition: border-color 0.2s ease;
+}
+
+.healthcare-initiative-box:hover {
+  border-color: #CBD5E1;
+}
+
+.init-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.init-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.init-badge {
+  display: inline-block;
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FDBA74;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.init-desc {
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.init-next-phase {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  font-size: 0.92rem;
+  color: #475569;
+}
+
+/* 3. Post-SDG Sections: Governance & Statutory Disclosures Dropdowns */
+.dropdown-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.dropdown-section:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+}
+
+.dropdown-section.active {
+  border-color: #EC6700;
+  box-shadow: 0 10px 32px rgba(236, 103, 0, 0.1);
+}
+
+.main-dropdown-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.dropdown-section.active .accordion-main-title,
+.dropdown-section:hover .accordion-main-title {
+  color: #EC6700;
+}
+
+.governance-body-content {
+  padding: 0 32px 32px 32px;
+}
+
+.governance-body-content p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #334155;
+  margin: 0;
+}
+
+.disclosures-body-content {
+  padding: 0 32px 36px 32px;
+}
+
+.disclosures-lead-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0 0 24px 0;
+}
+
+/* Statutory Disclosures 3 Tabs (Pace Digitek, LPPL, PREPL) */
+.statutory-company-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.statutory-comp-btn {
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: 1.5px solid #E2E8F0;
+  background: #F8FAFC;
+  color: #475569;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.statutory-comp-btn:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.statutory-comp-btn.active {
+  background: linear-gradient(135deg, #EC6700 0%, #D95300 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(236, 103, 0, 0.35);
+}
+
+.statutory-comp-panel {
+  display: none;
+}
+
+.statutory-comp-panel.active {
+  display: block;
+}
+
+.document-links-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.doc-link-tab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-radius: 12px;
+  border: 1.5px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.doc-link-tab svg {
+  color: #EC6700;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.doc-link-tab:hover {
+  border-color: #EC6700;
+  background: #FFF7ED;
+  color: #C2410C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(236, 103, 0, 0.12);
+}
+
+.doc-link-tab:hover svg {
+  transform: scale(1.15);
+}
+
+/* 4. Streamlined Contact Section */
+.contact-card-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.contact-brand-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+.contact-tagline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 28px 0;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #94A3B8;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+.contact-icon {
+  color: #EC6700;
+  flex-shrink: 0;
+}
+
+.contact-text {
+  color: #E2E8F0;
+}
+
+.contact-email-link {
+  color: #EC6700;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.contact-email-link:hover {
+  color: #FF8A3D;
+}
+
+@media (max-width: 640px) {
+  .theme-accordion-header,
+  .main-dropdown-header {
+    padding: 18px 20px;
+  }
+
+  .theme-accordion-body,
+  .governance-body-content,
+  .disclosures-body-content {
+    padding: 0 20px 22px 20px;
+  }
+
+  .accordion-main-title {
+    font-size: 1.3rem;
+  }
+
+  .theme-tab-title {
+    font-size: 1.15rem;
+  }
+
+  .entity-modal-dialog {
+    padding: 28px 20px 24px;
+  }
+
+  .entity-modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .entity-modal-footer {
+    justify-content: center;
+  }
+
+  .document-links-group {
+    grid-template-columns: 1fr;
+  }
+}

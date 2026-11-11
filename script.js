@@ -1,109 +1,151 @@
 /**
- * Pace Foundation CSR Landing Page - Interactive Logic (v3.0)
+ * Pace Foundation CSR Landing Page - Interactive Logic (v5.0)
  * Robust, Fail-Safe Implementation
  */
 
 // ==================== GLOBAL INTERACTIVE FUNCTIONS ====================
 
-// 1. Focus Themes: Side-by-Side Square Cards + Horizontal Detail Below
-window.toggleThemeTab = function(themeKey, e) {
+// 1. Group Entities Pop-out Modal Data & Controls
+const entityData = {
+  pdl: {
+    title: 'Pace Digitek Limited',
+    sector: 'Integrated Infrastructure & Energy Solutions',
+    logo: 'assets/images/logo-pdl.png',
+    desc: "An integrated infrastructure and energy solutions company operating across the Telecom & ICT and Energy sectors. With capabilities spanning manufacturing, Engineering, Procurement & Construction (EPC), and Operations & Maintenance (O&M), Pace Digitek delivers comprehensive solutions across telecom infrastructure, digital connectivity and advanced energy storage. Through its diverse business capabilities, the company supports critical infrastructure development and India's evolving energy landscape.",
+    link: 'https://pacedigitek.com',
+    linkText: 'Visit Official Website'
+  },
+  lppl: {
+    title: 'Lineage Power Private Limited',
+    sector: 'Telecom Power & Energy Storage Solutions',
+    logo: 'assets/images/logo-lppl.png',
+    desc: 'A dedicated manufacturing company specialising in telecom passive power and battery energy storage solutions. Lineage Power designs, engineers and manufactures high-availability DC power systems, hybrid platforms and containerised Battery Energy Storage Systems (BESS) for telecom operators, data centres, utilities and renewable energy projects. Combining advanced manufacturing capabilities, engineering expertise and integrated lifecycle services, the company delivers reliable power infrastructure solutions across India and select international markets.',
+    link: 'https://lineagepower.com',
+    linkText: 'Visit Official Website'
+  },
+  foundation: {
+    title: 'Pace Foundation',
+    sector: 'Philanthropic Arm',
+    logo: 'assets/images/logo-transparent.png',
+    desc: 'Pace Group established Pace Foundation as its philanthropic arm for coordinating and implementing its community initiatives.',
+    link: 'https://pacedigitek.com',
+    linkText: 'Visit Pace Group Website'
+  },
+  prepl: {
+    title: 'Pace Renewable Energies Private Limited',
+    sector: 'Clean Energy Partner',
+    logo: 'assets/images/logo-prepl.png',
+    desc: 'A dedicated renewable energy company accelerating solar power deployment and clean energy generation across rural and commercial India. Contributing alongside Pace Digitek through sustainable environmental practices, clean energy literacy, and community-centered ecological initiatives that leave a cleaner footprint for the future.',
+    link: 'https://pacedigitek.com',
+    linkText: 'Visit Official Website'
+  }
+};
+
+window.openEntityModal = function(key, e) {
   if (e) {
     if (e.preventDefault) e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
   }
+  const data = entityData[key];
+  if (!data) return;
 
-  const container = document.getElementById('theme-detail-container');
-  const allCards = document.querySelectorAll('.theme-square-card');
-  const allPanels = document.querySelectorAll('.theme-detail-panel');
-  const labelEl = document.getElementById('detail-active-label');
+  const modal = document.getElementById('entityModal');
+  const titleEl = document.getElementById('entityModalTitle');
+  const sectorEl = document.getElementById('entityModalSector');
+  const logoEl = document.getElementById('entityModalLogo');
+  const descEl = document.getElementById('entityModalDesc');
+  const linkEl = document.getElementById('entityModalLink');
+  const linkTextEl = document.getElementById('entityModalLinkText');
 
-  if (themeKey === 'close') {
-    if (container) container.classList.add('collapsed');
-    allCards.forEach(c => {
-      c.classList.remove('active');
-      c.setAttribute('aria-expanded', 'false');
-    });
-    return;
+  if (titleEl) titleEl.textContent = data.title;
+  if (sectorEl) sectorEl.textContent = data.sector;
+  if (logoEl) logoEl.src = data.logo;
+  if (descEl) descEl.textContent = data.desc;
+  if (linkEl) linkEl.href = data.link;
+  if (linkTextEl) linkTextEl.textContent = data.linkText || 'Visit Official Website';
+
+  if (modal) {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
   }
-
-  const targetCard = document.getElementById('card-' + themeKey);
-  const targetPanel = document.getElementById('detail-' + themeKey);
-  if (!targetCard || !targetPanel) return;
-
-  const isAlreadyActive = targetCard.classList.contains('active') && container && !container.classList.contains('collapsed');
-
-  if (isAlreadyActive) {
-    if (container) container.classList.add('collapsed');
-    targetCard.classList.remove('active');
-    targetCard.setAttribute('aria-expanded', 'false');
-    return;
-  }
-
-  if (container) container.classList.remove('collapsed');
-
-  allCards.forEach(c => {
-    const isThis = (c === targetCard);
-    c.classList.toggle('active', isThis);
-    c.setAttribute('aria-expanded', isThis ? 'true' : 'false');
-  });
-
-  allPanels.forEach(p => {
-    p.classList.toggle('active', p === targetPanel);
-  });
-
-  const labels = {
-    'education': 'Theme 01 • Education: School Infrastructure Development',
-    'healthcare': 'Theme 02 • Healthcare: Mobility Aids & Patient Care',
-    'elderly': 'Theme 03 • Elderly Care: Dignified Living for Senior Citizens',
-    'responsive': 'Theme 04 • Responsive Need-Based Community Intervention'
-  };
-  if (labelEl && labels[themeKey]) {
-    labelEl.textContent = labels[themeKey];
-  }
+  document.body.style.overflow = 'hidden';
 };
 
-window.toggleFocusCard = function(cardOrId, e) {
-  const id = typeof cardOrId === 'string' ? cardOrId : (cardOrId.id || '');
-  const key = id.replace('card-', '').replace('detail-', '').replace('content-', '');
-  window.toggleThemeTab(key, e);
+window.closeEntityModal = function() {
+  const modal = document.getElementById('entityModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+  document.body.style.overflow = '';
 };
 
-window.expandFocusCard = function(cardOrId) {
-  const id = typeof cardOrId === 'string' ? cardOrId : (cardOrId.id || '');
-  const key = id.replace('card-', '').replace('detail-', '').replace('content-', '');
-  window.toggleThemeTab(key);
-};
-
-// 2. Statutory Tabs Switcher
-window.switchStatutoryTab = function(tabId, e) {
+// 2. Focus Themes: Bosch-Style Dropdowns / Accordions
+window.toggleThemeAccordion = function(themeKey, e) {
   if (e) {
     if (e.preventDefault) e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
   }
-  const tabBtn = document.getElementById(tabId);
-  if (!tabBtn) return;
+  const targetItem = document.getElementById('accordion-theme-' + themeKey);
+  if (!targetItem) return;
 
-  const targetPanelId = tabBtn.getAttribute('aria-controls');
-  const allButtons = document.querySelectorAll('.statutory-tab-btn');
-  const allPanels = document.querySelectorAll('.statutory-tab-panel');
+  const isAlreadyActive = targetItem.classList.contains('active');
+  const allItems = document.querySelectorAll('.theme-accordion-item');
+
+  allItems.forEach(item => {
+    item.classList.remove('active');
+    const btn = item.querySelector('.accordion-header');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+
+  if (!isAlreadyActive) {
+    targetItem.classList.add('active');
+    const btn = targetItem.querySelector('.accordion-header');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  }
+};
+
+// 3. Post-SDG Dropdowns (Governance & Oversight, Statutory Disclosures)
+window.toggleDropdownSection = function(sectionKey, e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  const targetItem = document.getElementById('accordion-' + sectionKey);
+  if (!targetItem) return;
+
+  const isExpanded = targetItem.classList.toggle('active');
+  const btn = targetItem.querySelector('.accordion-header');
+  if (btn) btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+};
+
+// 4. Statutory Disclosures Company Switcher (Pace Digitek, LPPL, PREPL)
+window.selectDisclosureCompany = function(compKey, e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  const allButtons = document.querySelectorAll('.statutory-comp-btn');
+  const allPanels = document.querySelectorAll('.statutory-comp-panel');
 
   allButtons.forEach(btn => {
-    btn.classList.remove('active');
-    btn.setAttribute('aria-selected', 'false');
+    const isTarget = btn.id === ('btn-comp-' + compKey);
+    btn.classList.toggle('active', isTarget);
+    btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
   });
-  tabBtn.classList.add('active');
-  tabBtn.setAttribute('aria-selected', 'true');
 
   allPanels.forEach(panel => {
-    if (panel.id === targetPanelId) {
-      panel.classList.add('active');
-    } else {
-      panel.classList.remove('active');
-    }
+    const isTarget = panel.id === ('panel-comp-' + compKey);
+    panel.classList.toggle('active', isTarget);
   });
 };
 
-// 3. Mobile Navigation Menu Toggle
+// Legacy compatibility aliases
+window.toggleThemeTab = window.toggleThemeAccordion;
+window.switchStatutoryTab = window.selectDisclosureCompany;
+window.selectEntityNode = window.openEntityModal;
+
+// 5. Mobile Navigation Menu Toggle
 window.toggleMobileMenu = function(e) {
   if (e) {
     if (e.preventDefault) e.preventDefault();
@@ -124,7 +166,7 @@ window.closeMobileMenu = function() {
   if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
 };
 
-// 4. Photo Lightbox Modal
+// 6. Photo Lightbox Modal
 window.openLightbox = function(photoSrc, title, desc) {
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -133,8 +175,8 @@ window.openLightbox = function(photoSrc, title, desc) {
 
   if (!lightboxModal || !lightboxImg) return;
   lightboxImg.src = photoSrc;
-  if (lightboxTitle) lightboxTitle.textContent = title || 'Pace Group CSR Initiative';
-  if (lightboxDesc) lightboxDesc.textContent = desc || 'Field work and community empowerment';
+  if (lightboxTitle) lightboxTitle.textContent = title || 'Infrastructure Photograph';
+  if (lightboxDesc) lightboxDesc.textContent = desc || 'Pace Group Corporate Social Responsibility Field Initiative';
   lightboxModal.classList.add('active');
   lightboxModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
@@ -146,48 +188,6 @@ window.closeLightbox = function() {
   lightboxModal.classList.remove('active');
   lightboxModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-};
-
-// 5. Participating Group Entities Network Diagram Controller
-window.selectEntityNode = function(entityKey, e) {
-  if (e) {
-    if (e.preventDefault) e.preventDefault();
-    if (e.stopPropagation) e.stopPropagation();
-  }
-
-  // 1. Update satellite nodes & hub active states
-  const allNodes = document.querySelectorAll('.entity-satellite-node, .entity-hub-card');
-  allNodes.forEach(node => {
-    node.classList.remove('active');
-  });
-  const targetNode = document.getElementById('node-' + entityKey);
-  if (targetNode) targetNode.classList.add('active');
-
-  // 2. Update SVG spoke lines and joint dots
-  const allSpokes = document.querySelectorAll('.spoke-line');
-  const allJoints = document.querySelectorAll('.spoke-joint-dot');
-  allSpokes.forEach(s => s.classList.remove('active'));
-  allJoints.forEach(j => j.classList.remove('active'));
-
-  const targetSpoke = document.getElementById('spoke-' + entityKey);
-  const targetJoint = document.getElementById('joint-' + entityKey);
-  if (targetSpoke) targetSpoke.classList.add('active');
-  if (targetJoint) targetJoint.classList.add('active');
-
-  // 3. Update switcher tab buttons
-  const allTabs = document.querySelectorAll('.showcase-tab-btn');
-  allTabs.forEach(btn => {
-    const isTarget = btn.id === ('tab-btn-' + entityKey);
-    btn.classList.toggle('active', isTarget);
-    btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
-  });
-
-  // 4. Update showcase detail panels
-  const allPanels = document.querySelectorAll('.showcase-entity-detail');
-  allPanels.forEach(panel => {
-    const isTarget = panel.id === ('showcase-detail-' + entityKey);
-    panel.classList.toggle('active', isTarget);
-  });
 };
 
 // 6. Statutory Documents Data & Reader Modal

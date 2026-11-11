@@ -38,18 +38,14 @@
         <ul class="nav-list">
           <li><a href="#about" class="nav-link">About Us</a></li>
           <li><a href="#entities" class="nav-link">Entities</a></li>
-          <li><a href="#focus-areas" class="nav-link">Themes</a></li>
+          <li><a href="#focus-themes" class="nav-link">Themes</a></li>
           <li><a href="#sdg" class="nav-link">SDGs</a></li>
+          <li><a href="#governance-oversight" class="nav-link">Governance</a></li>
+          <li><a href="#statutory-disclosures" class="nav-link">Disclosures</a></li>
           <li><a href="#gallery" class="nav-link">Gallery</a></li>
-          <li class="nav-item-coming-soon">
-            <span class="nav-link nav-link-disabled" tabindex="0">
-              Newsroom
-              <span class="coming-soon-tooltip">Coming Soon</span>
-            </span>
-          </li>
         </ul>
         <div class="nav-cta-wrapper">
-          <a href="#footer" class="btn btn-primary btn-sm">Contact Details</a>
+          <a href="#contact" class="btn btn-primary btn-sm">Contact Us</a>
         </div>
       </nav>
 
@@ -188,7 +184,7 @@
         <div class="entities-diagram-wrapper">
           <div class="diagram-instruction-pill">
             <span class="instruction-dot"></span>
-            <span>Interactive Ecosystem • Click or hover on any circle to view mandate, focus &amp; official websites</span>
+            <span>Interactive Ecosystem • Click any circle to view entity details &amp; official website</span>
           </div>
 
           <!-- Network Diagram Canvas -->
@@ -226,7 +222,7 @@
             </svg>
 
             <!-- 1. MAIN CENTRAL HUB: PACE DIGITEK LIMITED (Lead Operating Entity / Primary CSR Contributor) -->
-            <div class="entity-hub-card active" id="node-pdl" role="button" tabindex="0" onclick="selectEntityNode('pdl', event)" aria-label="Pace Digitek Limited Main CSR Hub">
+            <div class="entity-hub-card active" id="node-pdl" role="button" tabindex="0" onclick="openEntityModal('pdl', event)" aria-label="Pace Digitek Limited Main CSR Hub">
               <div class="hub-inner-disc">
                 <div class="hub-logo-wrap">
                   <img src="assets/images/logo-pdl.png" alt="Pace Digitek Limited Logo" class="hub-logo-img">
@@ -246,7 +242,7 @@
             <!-- Container for 3 Branch Satellites (Lineage Power, Pace Foundation, Pace Renewable) -->
             <div class="entities-satellites-group">
               <!-- Satellite 1: LINEAGE POWER (Power Partner - Left) -->
-              <div class="entity-satellite-node sat-lppl" id="node-lppl" role="button" tabindex="0" onclick="selectEntityNode('lppl', event)" aria-label="Lineage Power Private Limited">
+              <div class="entity-satellite-node sat-lppl" id="node-lppl" role="button" tabindex="0" onclick="openEntityModal('lppl', event)" aria-label="Lineage Power Private Limited">
                 <div class="sat-circle-inner">
                   <div class="sat-logo-wrap">
                     <img src="assets/images/logo-lppl.png" alt="Lineage Power Logo" class="sat-logo-img">
@@ -257,7 +253,7 @@
               </div>
 
               <!-- Satellite 2: PACE FOUNDATION (Dedicated Philanthropic Arm - Center Bottom) -->
-              <div class="entity-satellite-node sat-foundation" id="node-foundation" role="button" tabindex="0" onclick="selectEntityNode('foundation', event)" aria-label="Pace Foundation">
+              <div class="entity-satellite-node sat-foundation" id="node-foundation" role="button" tabindex="0" onclick="openEntityModal('foundation', event)" aria-label="Pace Foundation">
                 <div class="sat-circle-inner">
                   <div class="sat-logo-wrap">
                     <img src="assets/images/logo-transparent.png" alt="Pace Foundation Logo" class="sat-logo-img">
@@ -268,7 +264,7 @@
               </div>
 
               <!-- Satellite 3: PACE RENEWABLE ENERGIES (Clean Energy Partner - Right) -->
-              <div class="entity-satellite-node sat-prepl" id="node-prepl" role="button" tabindex="0" onclick="selectEntityNode('prepl', event)" aria-label="Pace Renewable Energies Private Limited">
+              <div class="entity-satellite-node sat-prepl" id="node-prepl" role="button" tabindex="0" onclick="openEntityModal('prepl', event)" aria-label="Pace Renewable Energies Private Limited">
                 <div class="sat-circle-inner">
                   <div class="sat-logo-wrap">
                     <img src="assets/images/logo-prepl.png" alt="Pace Renewable Energies Logo" class="sat-logo-img">
@@ -279,489 +275,157 @@
               </div>
             </div>
           </div>
-
-          <!-- Entity Interactive Showcase Panel (Updates dynamically on click/hover) -->
-          <div class="entity-showcase-panel" id="entityShowcasePanel">
-            <!-- Navigation Switcher Pills -->
-            <div class="showcase-tabs-nav" role="tablist" aria-label="Participating Entity Tabs">
-              <button class="showcase-tab-btn active" id="tab-btn-pdl" role="tab" aria-selected="true" onclick="selectEntityNode('pdl', event)">
-                <span>Pace Digitek Limited (Main)</span>
-              </button>
-              <button class="showcase-tab-btn" id="tab-btn-lppl" role="tab" aria-selected="false" onclick="selectEntityNode('lppl', event)">
-                <span>Lineage Power</span>
-              </button>
-              <button class="showcase-tab-btn" id="tab-btn-foundation" role="tab" aria-selected="false" onclick="selectEntityNode('foundation', event)">
-                <span>Pace Foundation</span>
-              </button>
-              <button class="showcase-tab-btn" id="tab-btn-prepl" role="tab" aria-selected="false" onclick="selectEntityNode('prepl', event)">
-                <span>Pace Renewable</span>
-              </button>
-            </div>
-
-            <!-- Entity Detail Panels -->
-            <div class="showcase-panels-viewport">
-              <!-- Panel 1: Pace Digitek Limited (Main Hub - Active by Default) -->
-              <div class="showcase-entity-detail active" id="showcase-detail-pdl" role="tabpanel">
-                <div class="showcase-left-col">
-                  <div class="showcase-logo-card">
-                    <img src="assets/images/logo-pdl.png" alt="Pace Digitek Limited Logo" class="showcase-logo-img">
-                  </div>
-                  <span class="showcase-role-tag primary">Lead Primary Contributor</span>
-                  <a href="https://pacedigitek.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-orange btn-sm">
-                    <span>Visit Official Website</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </div>
-                <div class="showcase-right-col">
-                  <div class="showcase-header">
-                    <h3>Pace Digitek Limited</h3>
-                    <span class="showcase-sector">Integrated Infrastructure &amp; Energy Solutions</span>
-                  </div>
-                  <p class="showcase-desc">
-                    An integrated infrastructure and energy solutions company operating across the Telecom &amp; ICT and Energy sectors. With capabilities spanning manufacturing, Engineering, Procurement &amp; Construction (EPC), and Operations &amp; Maintenance (O&amp;M), Pace Digitek delivers comprehensive solutions across telecom infrastructure, digital connectivity and advanced energy storage. Through its diverse business capabilities, the company supports critical infrastructure development and India's evolving energy landscape.
-                  </p>
-                  <div class="showcase-highlights-grid">
-                    <span class="showcase-pill">✓ Telecom &amp; ICT Solutions</span>
-                    <span class="showcase-pill">✓ Advanced Energy Storage</span>
-                    <span class="showcase-pill">✓ Manufacturing, EPC &amp; O&amp;M</span>
-                    <span class="showcase-pill">✓ Section 135 Compliant</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 2: Lineage Power Private Limited -->
-              <div class="showcase-entity-detail" id="showcase-detail-lppl" role="tabpanel">
-                <div class="showcase-left-col">
-                  <div class="showcase-logo-card">
-                    <img src="assets/images/logo-lppl.png" alt="Lineage Power Logo" class="showcase-logo-img">
-                  </div>
-                  <span class="showcase-role-tag partner">Group CSR Partner</span>
-                  <a href="https://lineagepower.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-orange btn-sm">
-                    <span>Visit Official Website</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </div>
-                <div class="showcase-right-col">
-                  <div class="showcase-header">
-                    <h3>Lineage Power Private Limited</h3>
-                    <span class="showcase-sector">Telecom Power &amp; Energy Storage Solutions</span>
-                  </div>
-                  <p class="showcase-desc">
-                    A dedicated manufacturing company specialising in telecom passive power and battery energy storage solutions. Lineage Power designs, engineers and manufactures high-availability DC power systems, hybrid platforms and containerised Battery Energy Storage Systems (BESS) for telecom operators, data centres, utilities and renewable energy projects. Combining advanced manufacturing capabilities, engineering expertise and integrated lifecycle services, the company delivers reliable power infrastructure solutions across India and select international markets.
-                  </p>
-                  <div class="showcase-highlights-grid">
-                    <span class="showcase-pill">✓ Telecom Passive Power</span>
-                    <span class="showcase-pill">✓ High-Availability DC Systems</span>
-                    <span class="showcase-pill">✓ Containerised BESS Platforms</span>
-                    <span class="showcase-pill">✓ Section 135 Compliant</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 3: Pace Foundation (Philanthropic Arm) -->
-              <div class="showcase-entity-detail" id="showcase-detail-foundation" role="tabpanel">
-                <div class="showcase-left-col">
-                  <div class="showcase-logo-card">
-                    <img src="assets/images/logo-transparent.png" alt="Pace Foundation Logo" class="showcase-logo-img">
-                  </div>
-                  <span class="showcase-role-tag foundation">Dedicated Philanthropic Arm</span>
-                  <a href="#focus-areas" class="btn btn-primary btn-sm">
-                    <span>Explore Focus Themes</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-                  </a>
-                </div>
-                <div class="showcase-right-col">
-                  <div class="showcase-header">
-                    <h3>Pace Foundation</h3>
-                    <span class="showcase-sector">Centralized Philanthropic Arm &amp; Direct Ground Execution Vehicle</span>
-                  </div>
-                  <p class="showcase-desc">
-                    Serving as the centralized philanthropic arm for Pace Digitek and partner entities. The Foundation drives direct ground-level project execution, coordinates with accredited partner NGOs and institutions, conducts physical milestone verification, and ensures transparent reporting and zero intermediary leakage across all corporate social responsibility initiatives.
-                  </p>
-                  <div class="showcase-highlights-grid">
-                    <span class="showcase-pill">✓ Direct Ground Monitoring</span>
-                    <span class="showcase-pill">✓ Section 135 Governance</span>
-                    <span class="showcase-pill">✓ Zero Intermediary Diversion</span>
-                    <span class="showcase-pill">✓ Physical Milestone Audits</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 4: Pace Renewable Energies Private Limited -->
-              <div class="showcase-entity-detail" id="showcase-detail-prepl" role="tabpanel">
-                <div class="showcase-left-col">
-                  <div class="showcase-logo-card">
-                    <img src="assets/images/logo-prepl.png" alt="Pace Renewable Energies Logo" class="showcase-logo-img">
-                  </div>
-                  <span class="showcase-role-tag partner">Group CSR Partner</span>
-                  <a href="https://pacedigitek.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-orange btn-sm">
-                    <span>Visit Official Website</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </div>
-                <div class="showcase-right-col">
-                  <div class="showcase-header">
-                    <h3>Pace Renewable Energies Private Limited</h3>
-                    <span class="showcase-sector">Solar Power Deployment &amp; Clean Renewable Energy Generation</span>
-                  </div>
-                  <p class="showcase-desc">
-                    Accelerating solar power deployment and clean renewable energy generation across rural and commercial India. Contributing alongside Pace Digitek through sustainable environmental practices, clean energy literacy, and community-centered ecological initiatives that leave a cleaner footprint for the future.
-                  </p>
-                  <div class="showcase-highlights-grid">
-                    <span class="showcase-pill">✓ Solar Power Generation</span>
-                    <span class="showcase-pill">✓ Clean Energy Deployment</span>
-                    <span class="showcase-pill">✓ Ecological Stewardship</span>
-                    <span class="showcase-pill">✓ Section 135 Compliant</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-            <!-- ==================== FOCUS AREAS (POINT 11: 4 SIDE-BY-SIDE SQUARE THEMES & HORIZONTAL DETAIL) ==================== -->
-    <section class="section focus-section" id="focus-areas">
+    <!-- ==================== FOCUS THEMES (BOSCH-STYLE DROPDOWNS / ACCORDIONS) ==================== -->
+    <section class="section focus-section" id="focus-themes">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title">Our Focus Themes</h2>
+          <h2 class="section-title">Focus Themes</h2>
           <p class="section-subtitle">Delivering targeted, accountable, and sustainable interventions across communities.</p>
         </div>
 
-        <!-- 4 Square Theme Cards Side-by-Side Grid (CSR Suggestions Point 11) -->
-        <div class="theme-squares-grid">
-          <!-- Square 1: Education -->
-          <div class="theme-square-card active" id="card-education" role="button" tabindex="0" onclick="toggleThemeTab('education', event)" aria-expanded="true" aria-controls="detail-education">
-            <div class="theme-card-glow"></div>
-            <div class="theme-sq-top">
-              <div class="theme-sq-icon edu">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <div class="theme-sq-badges">
-                <span class="focus-tag edu">Theme 01</span>
-              </div>
-            </div>
-            <div class="theme-sq-body">
-              <span class="theme-sq-category">Focus Area 1</span>
-              <h3 class="theme-sq-title">Education</h3>
-              <p class="theme-sq-desc">We work to strengthen educational infrastructure in underserved schools through classroom upgrades, sanitation improvements, student seating, and learning resources, helping create supportive environments where children can learn with confidence and dignity.</p>
-            </div>
-            <div class="theme-sq-footer">
-              <span class="theme-sq-btn">
-                <span class="btn-label">View Details</span>
-                <span class="expand-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
+        <div class="bosch-accordion-group" id="focusAccordionGroup">
+          <!-- THEME 1: EDUCATION -->
+          <div class="accordion-item theme-accordion-item active" id="accordion-theme-education">
+            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('education', event)" aria-expanded="true">
+              <span class="theme-tab-title">Education</span>
+              <span class="accordion-arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
               </span>
-            </div>
-          </div>
-
-          <!-- Square 2: Healthcare -->
-          <div class="theme-square-card" id="card-healthcare" role="button" tabindex="0" onclick="toggleThemeTab('healthcare', event)" aria-expanded="false" aria-controls="detail-healthcare">
-            <div class="theme-card-glow"></div>
-            <div class="theme-sq-top">
-              <div class="theme-sq-icon health">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-              </div>
-              <div class="theme-sq-badges">
-                <span class="focus-tag health">Theme 02</span>
-              </div>
-            </div>
-            <div class="theme-sq-body">
-              <span class="theme-sq-category">Focus Area 2</span>
-              <h3 class="theme-sq-title">Healthcare</h3>
-              <p class="theme-sq-desc">Our healthcare initiatives focus on enhancing mobility, strengthening patient care, and supporting the health and well-being of vulnerable children through partnerships with trusted community organizations.</p>
-            </div>
-            <div class="theme-sq-footer">
-              <span class="theme-sq-btn">
-                <span class="btn-label">View Details</span>
-                <span class="expand-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Square 3: Elderly Care -->
-          <div class="theme-square-card" id="card-elderly" role="button" tabindex="0" onclick="toggleThemeTab('elderly', event)" aria-expanded="false" aria-controls="detail-elderly">
-            <div class="theme-card-glow"></div>
-            <div class="theme-sq-top">
-              <div class="theme-sq-icon elder">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2"/><path d="M18 10l3 3-3 3"/></svg>
-              </div>
-              <div class="theme-sq-badges">
-                <span class="focus-tag elder">Theme 03</span>
-              </div>
-            </div>
-            <div class="theme-sq-body">
-              <span class="theme-sq-category">Focus Area 3</span>
-              <h3 class="theme-sq-title">Elderly care</h3>
-              <p class="theme-sq-desc">Recognizing the growing need for quality elder care, Pace Group is developing an initiative focused on providing secure living environments, healthcare support, and opportunities for social well-being for senior citizens. Planning is currently underway.</p>
-            </div>
-            <div class="theme-sq-footer">
-              <span class="theme-sq-btn">
-                <span class="btn-label">View Details</span>
-                <span class="expand-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Square 4: Responsive -->
-          <div class="theme-square-card" id="card-responsive" role="button" tabindex="0" onclick="toggleThemeTab('responsive', event)" aria-expanded="false" aria-controls="detail-responsive">
-            <div class="theme-card-glow"></div>
-            <div class="theme-sq-top">
-              <div class="theme-sq-icon responsive">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <div class="theme-sq-badges">
-                <span class="focus-tag responsive">Theme 04</span>
-              </div>
-            </div>
-            <div class="theme-sq-body">
-              <span class="theme-sq-category">Focus Area 4</span>
-              <h3 class="theme-sq-title">Responsive need-based community intervention</h3>
-              <p class="theme-sq-desc">In addition to our core focus areas, we provide one-time support for eligible community needs that require timely assistance. These interventions are guided by identified requirements from schools, healthcare institutions, community organizations, and local stakeholders, and are evaluated through our established CSR process to ensure meaningful and responsible impact.</p>
-            </div>
-            <div class="theme-sq-footer">
-              <span class="theme-sq-btn">
-                <span class="btn-label">View Details</span>
-                <span class="expand-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Horizontal Detail Container Below the 4 Square Cards -->
-        <div class="theme-horizontal-detail-container" id="theme-detail-container">
-          <div class="detail-container-header">
-            <div class="detail-header-left">
-              <span class="detail-indicator-dot"></span>
-              <span class="detail-active-label" id="detail-active-label">Theme 01 • Education: School Infrastructure Development</span>
-            </div>
-            <button type="button" class="detail-close-btn" onclick="toggleThemeTab('close', event)" aria-label="Close detail view">✕</button>
-          </div>
-
-          <!-- DETAIL PANEL 1: Education (Exact Point 11 Implementation) -->
-          <div class="theme-detail-panel active" id="detail-education" role="tabpanel" aria-labelledby="card-education">
-            <div class="focus-body-inner">
-              <div class="focus-details-col">
-                <h4>3 government schools in Bengaluru with following support</h4>
-                <p>
+            </button>
+            <div class="accordion-collapse">
+              <div class="accordion-body theme-accordion-body">
+                <p class="theme-lead-desc">
                   We work to strengthen educational infrastructure in underserved schools through classroom upgrades, sanitation improvements, student seating, and learning resources, helping create supportive environments where children can learn with confidence and dignity.
                 </p>
 
-                <div class="schools-supported-box">
-                  <h5>Supported Institutions in Bengaluru, Karnataka:</h5>
-                  <div class="school-tags">
-                    <span class="school-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Government Higher Primary School, Gangasandra</span>
-                    <span class="school-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Government Higher Primary School, Ramohalli</span>
-                    <span class="school-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Government Lower Primary School, Doddabasti</span>
+                <div class="theme-support-wrapper">
+                  <h4 class="support-heading">3 government schools in Bengaluru with following support</h4>
+                  <ul class="support-bullets-list">
+                    <li>Classroom construction/renovation</li>
+                    <li>Dual-seat benches</li>
+                    <li>Dedicated sanitation and water blocks</li>
+                    <li>Educational supplies</li>
+                  </ul>
+
+                  <div class="theme-impact-callout">
+                    <span class="impact-title">Impact:</span>
+                    <span class="impact-quote">“Average 23% increase in admissions”</span>
                   </div>
                 </div>
 
-                <div class="focus-deliverables">
-                  <div class="deliverable-item">
-                    <span class="check-icon">✓</span>
-                    <div>
-                      <strong>Classroom construction/renovation:</strong>
-                      <span>Structural wall plastering, weatherproof painting, electrical rewiring, and energy-efficient LED fixtures.</span>
-                    </div>
+                <div class="theme-photos-grid">
+                  <div class="theme-photo-card" onclick="openLightbox('assets/images/gangasandra-1.jpg', 'Gangasandra School', 'Upgraded school building and modern classrooms')">
+                    <img src="assets/images/gangasandra-1.jpg" alt="Government Higher Primary School, Gangasandra infrastructure" loading="lazy">
                   </div>
-                  <div class="deliverable-item">
-                    <span class="check-icon">✓</span>
-                    <div>
-                      <strong>Dual-seat benches:</strong>
-                      <span>Durable, ergonomic student dual-bench seating replacing floor seating for comfortable classroom learning.</span>
-                    </div>
+                  <div class="theme-photo-card" onclick="openLightbox('assets/images/ramohalli-1.jpg', 'Ramohalli School', 'Dual-seat benches and classroom upgrades')">
+                    <img src="assets/images/ramohalli-1.jpg" alt="Government Higher Primary School, Ramohalli classrooms" loading="lazy">
                   </div>
-                  <div class="deliverable-item">
-                    <span class="check-icon">✓</span>
-                    <div>
-                      <strong>Dedicated sanitation and water blocks:</strong>
-                      <span>Hygienic boys and girls toilet blocks with continuous running water supply and sanitation handwash stations.</span>
-                    </div>
-                  </div>
-                  <div class="deliverable-item">
-                    <span class="check-icon">✓</span>
-                    <div>
-                      <strong>Educational supplies:</strong>
-                      <span>Stationery kits, notebooks, and essential learning materials provided to all enrolled students.</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="impact-stat-callout">
-                  <span class="stat-highlight">Impact: “Average 23% increase in admissions”</span>
-                  <span>Following the comprehensive handover of modernized school classrooms and seating infrastructure, supported schools recorded a verified average 23% increase in student admissions.</span>
-                </div>
-              </div>
-
-              <div class="focus-media-col">
-                <div class="media-preview-card">
-                  <img src="assets/images/gangasandra-1.jpg" alt="Newly renovated Gangasandra School building with modern classrooms" loading="lazy">
-                  <span class="media-caption">Government Higher Primary School, Gangasandra — Infrastructure Upgraded</span>
-                </div>
-                <div class="media-dual-grid">
-                  <div class="media-thumb">
-                    <img src="assets/images/ramohalli-1.jpg" alt="Upgraded classroom with dual benches at Ramohalli School" loading="lazy">
-                    <span>Ramohalli Classroom</span>
-                  </div>
-                  <div class="media-thumb">
-                    <img src="assets/images/doddabasti-1.jpg" alt="Dedicated classroom and seating infrastructure at Doddabasti School" loading="lazy">
-                    <span>Doddabasti School</span>
+                  <div class="theme-photo-card" onclick="openLightbox('assets/images/doddabasti-1.jpg', 'Doddabasti School', 'Restored classrooms and student seating')">
+                    <img src="assets/images/doddabasti-1.jpg" alt="Government Lower Primary School, Doddabasti classrooms" loading="lazy">
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- DETAIL PANEL 2: Healthcare (Exact Point 11 Implementation) -->
-          <div class="theme-detail-panel" id="detail-healthcare" role="tabpanel" aria-labelledby="card-healthcare">
-            <div class="focus-body-inner">
-              <div class="focus-details-col">
-                <h4>Healthcare: Mobility, Patient Care & Child Support</h4>
-                <p>
+          <!-- THEME 2: HEALTHCARE -->
+          <div class="accordion-item theme-accordion-item" id="accordion-theme-healthcare">
+            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('healthcare', event)" aria-expanded="false">
+              <span class="theme-tab-title">Healthcare</span>
+              <span class="accordion-arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="accordion-collapse">
+              <div class="accordion-body theme-accordion-body">
+                <p class="theme-lead-desc">
                   Our healthcare initiatives focus on enhancing mobility, strengthening patient care, and supporting the health and well-being of vulnerable children through partnerships with trusted community organizations.
                 </p>
 
-                <div class="healthcare-initiatives-list">
-                  <!-- 1. Mobility Support -->
-                  <div class="initiative-subcard">
-                    <div class="subcard-header">
-                      <span class="badge-pill">1. Mobility support:</span>
-                      <span class="entity-badge">50 Wheelchairs Distributed</span>
+                <div class="healthcare-initiatives-stack">
+                  <!-- Sub-initiative 1 -->
+                  <div class="healthcare-initiative-box">
+                    <div class="init-header">
+                      <span class="init-number">1. Mobility support:</span>
+                      <span class="init-badge">50 Wheelchairs Distributed</span>
                     </div>
-                    <h5>Supporting Persons with Locomotor Disabilities</h5>
-                    <p>
+                    <p class="init-desc">
                       Supporting persons with locomotor disabilities through the provision of wheelchairs, enabling greater independence, mobility, and participation in daily life.
                     </p>
-                    <div class="next-phase-pill">
+                    <div class="init-next-phase">
                       <strong>Next Phase:</strong> An additional 50 wheelchairs are planned for distribution during the current year.
                     </div>
                   </div>
 
-                  <!-- 2. Child Care and Health Support -->
-                  <div class="initiative-subcard">
-                    <div class="subcard-header">
-                      <span class="badge-pill">2. Child Care and Health Support</span>
-                      <span class="entity-badge">26 Children Supported</span>
+                  <!-- Sub-initiative 2 -->
+                  <div class="healthcare-initiative-box">
+                    <div class="init-header">
+                      <span class="init-number">2. Child Care and Health Support</span>
+                      <span class="init-badge">26 Children Supported</span>
                     </div>
-                    <h5>Residential Child Health, Nutrition & Care</h5>
-                    <p>
+                    <p class="init-desc">
                       Supporting children under residential care with medical assistance, nutrition, education, clothing, and essential day-to-day needs to promote their overall health, development, and well-being.
                     </p>
                   </div>
 
-                  <!-- 3. Patient Care Infrastructure -->
-                  <div class="initiative-subcard">
-                    <div class="subcard-header">
-                      <span class="badge-pill">3. Patient Care Infrastructure</span>
-                      <span class="entity-badge">Strengthening Patient Care</span>
+                  <!-- Sub-initiative 3 -->
+                  <div class="healthcare-initiative-box">
+                    <div class="init-header">
+                      <span class="init-number">3. Patient Care Infrastructure</span>
+                      <span class="init-badge">Strengthening Patient Care</span>
                     </div>
-                    <h5>Equipping Healthcare Institutions</h5>
-                    <p>
+                    <p class="init-desc">
                       Supporting healthcare institutions with patient monitoring equipment to improve the quality of care available to underserved communities.
                     </p>
                   </div>
                 </div>
-              </div>
 
-              <div class="focus-media-col">
-                <div class="media-preview-card">
-                  <img src="assets/images/doddabasti-3.jpg" alt="Dedicated water and sanitation facilities installed at Doddabasti School" loading="lazy">
-                  <span class="media-caption">Preventative Health: Dedicated sanitation and clean water facilities supporting student well-being</span>
-                </div>
-                <div class="media-preview-card mt-3">
-                  <img src="assets/images/ramohalli-2.jpg" alt="Refurbished indoor spaces promoting clean, healthy community learning" loading="lazy">
-                  <span class="media-caption">Institutional Upliftment: Upgraded hygienic facilities promoting dignifying community environments</span>
+                <div class="theme-photos-grid">
+                  <div class="theme-photo-card" onclick="openLightbox('assets/images/doddabasti-3.jpg', 'Sanitation & Hygiene Infrastructure', 'Dedicated water and sanitation blocks supporting health')">
+                    <img src="assets/images/doddabasti-3.jpg" alt="Dedicated health and sanitation infrastructure at Doddabasti" loading="lazy">
+                  </div>
+                  <div class="theme-photo-card" onclick="openLightbox('assets/images/ramohalli-2.jpg', 'Institutional Facility Care', 'Refurbished healthcare-compliant spaces promoting well-being')">
+                    <img src="assets/images/ramohalli-2.jpg" alt="Upgraded institutional facilities promoting student health" loading="lazy">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- DETAIL PANEL 3: Elderly Care (Exact Point 11 Implementation) -->
-          <div class="theme-detail-panel" id="detail-elderly" role="tabpanel" aria-labelledby="card-elderly">
-            <div class="focus-body-inner">
-              <div class="focus-details-col">
-                <h4>Elderly care: Dignified Living for Senior Citizens</h4>
-                <p>
+          <!-- THEME 3: ELDERLY CARE -->
+          <div class="accordion-item theme-accordion-item" id="accordion-theme-elderly">
+            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('elderly', event)" aria-expanded="false">
+              <span class="theme-tab-title">Elderly care</span>
+              <span class="accordion-arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="accordion-collapse">
+              <div class="accordion-body theme-accordion-body">
+                <p class="theme-lead-desc">
                   Recognizing the growing need for quality elder care, Pace Group is developing an initiative focused on providing secure living environments, healthcare support, and opportunities for social well-being for senior citizens. Planning is currently underway.
                 </p>
-
-                <div class="roadmap-box">
-                  <h5>Key Focus Areas Under Active Planning:</h5>
-                  <ul class="roadmap-list">
-                    <li>
-                      <strong>Secure Living Environments:</strong> Safe, senior-friendly infrastructure tailored with accessibility features and emergency safeguards.
-                    </li>
-                    <li>
-                      <strong>Healthcare Support:</strong> Regular health monitoring, doctor consultations, geriatric assistance, and palliative support.
-                    </li>
-                    <li>
-                      <strong>Social Well-Being & Engagement:</strong> Safe community spaces, recreational facilities, and nutritious meals to foster active, healthy living.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="status-indicator-box">
-                  <span class="badge-status">Current Phase: Planning & Feasibility</span>
-                  <p class="status-text">
-                    Project roadmap and implementation planning are currently underway by the Pace Group CSR team.
-                  </p>
-                </div>
-              </div>
-
-              <div class="focus-media-col">
-                <div class="media-preview-card">
-                  <img src="assets/images/ramohalli-4.jpg" alt="Safe, accessible infrastructure at Ramohalli" loading="lazy">
-                  <span class="media-caption">Safe Infrastructure Blueprint: Accessible, dignified community spaces and secure facilities</span>
-                </div>
               </div>
             </div>
           </div>
 
-          <!-- DETAIL PANEL 4: Responsive (Exact Point 11 Implementation) -->
-          <div class="theme-detail-panel" id="detail-responsive" role="tabpanel" aria-labelledby="card-responsive">
-            <div class="focus-body-inner">
-              <div class="focus-details-col">
-                <h4>Responsive need-based community intervention</h4>
-                <p>
+          <!-- THEME 4: COMMUNITY RESPONSE -->
+          <div class="accordion-item theme-accordion-item" id="accordion-theme-responsive">
+            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('responsive', event)" aria-expanded="false">
+              <span class="theme-tab-title">Community Response</span>
+              <span class="accordion-arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="accordion-collapse">
+              <div class="accordion-body theme-accordion-body">
+                <p class="theme-lead-desc">
                   In addition to our core focus areas, we provide one-time support for eligible community needs that require timely assistance. These interventions are guided by identified requirements from schools, healthcare institutions, community organizations, and local stakeholders, and are evaluated through our established CSR process to ensure meaningful and responsible impact.
                 </p>
-
-                <div class="criteria-grid">
-                  <div class="criteria-card">
-                    <div class="criteria-icon">🏫</div>
-                    <h6>School & Education Fixtures</h6>
-                    <p>Urgent requirements for learning aids, safe drinking water filtration, or classroom fixtures.</p>
-                  </div>
-                  <div class="criteria-card">
-                    <div class="criteria-icon">🏥</div>
-                    <h6>Health & Locomotor Equipment</h6>
-                    <p>Need-based assistive aids and emergency medical support for verified community beneficiaries.</p>
-                  </div>
-                  <div class="criteria-card">
-                    <div class="criteria-icon">⚖️</div>
-                    <h6>Established CSR Governance</h6>
-                    <p>Rigorous due diligence, ground inspection verification, and CSR Committee approval before fund sanction.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="focus-media-col">
-                <div class="callout-card">
-                  <h5>Governance & Need-Based Evaluation</h5>
-                  <p>All responsive interventions are identified in consultation with community stakeholders, validated on ground, and sanctioned through the prescribed CSR governance framework to guarantee transparency and direct beneficiary reach.</p>
-                </div>
-                <div class="media-preview-card mt-3">
-                  <img src="assets/images/ramohalli-3.jpg" alt="Direct community intervention and school restoration at Ramohalli" loading="lazy">
-                  <span class="media-caption">Verified Ground Impact: Responsive infrastructure upgrades delivered directly to local community institutions</span>
-                </div>
               </div>
             </div>
           </div>
@@ -821,595 +485,204 @@
       </div>
     </section>
 
-    <!-- ==================== GOVERNANCE & ACCOUNTABILITY ==================== -->
-    <section class="section governance-section" id="governance">
+    <!-- ==================== 1. GOVERNANCE AND OVERSIGHT (BOSCH-STYLE DROPDOWN) ==================== -->
+    <section class="section governance-section" id="governance-oversight">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">CSR Governance & Oversight</h2>
-          <p class="section-subtitle">
-            Operating under a multi-tiered statutory governance architecture in strict accordance with Section 135 of the Companies Act, 2013 and CSR Rules, 2014.
-          </p>
-        </div>
-
-        <div class="governance-summary-box">
-          <p class="governance-lead">
-            Pace Group operates under a robust, multi-tiered governance structure in accordance with Section 135 of the Companies Act, 2013, and the Companies (Corporate Social Responsibility Policy) Rules, 2014. The framework ensures strict statutory compliance, fiduciary oversight, transparent project approval, regular monitoring, and credible impact delivery across all participating group entities.
-          </p>
-
-          <div class="governance-pillars-grid">
-            <!-- PILLAR 1: BOARD OVERSIGHT -->
-            <div class="governance-pillar-card" id="pillar-board">
-              <div class="pillar-card-header">
-                <div class="pillar-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <span class="pillar-statutory-badge">Companies Act § 135(1)</span>
-              </div>
-              <h4>Board Oversight</h4>
-              <p>The Board of Directors of each group company holds ultimate fiduciary responsibility for approving the CSR Policy, sanctioning annual budgetary allocations, and reviewing statutory CSR reporting.</p>
-              <div class="pillar-card-footer">
-                <a href="#documents" class="pillar-link-btn" onclick="switchStatutoryTab('tab-pdl'); openDocModal('pdl-policy'); return false;">
-                  <span>View Board Mandate & Policy</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- PILLAR 2: CSR COMMITTEE -->
-            <div class="governance-pillar-card" id="pillar-committee">
-              <div class="pillar-card-header">
-                <div class="pillar-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <span class="pillar-statutory-badge">CSR Rules 2014 • Rule 5</span>
-              </div>
-              <h4>CSR Committee</h4>
-              <p>Formulates the Annual Action Plan, evaluates partner eligibility, periodically reviews physical milestone completion, and recommends project disbursements to the Board.</p>
-              <div class="pillar-card-footer">
-                <a href="#documents" class="pillar-link-btn" onclick="switchStatutoryTab('tab-pdl'); openDocModal('pdl-committee'); return false;">
-                  <span>View Committee Composition</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- PILLAR 3: PHILANTHROPIC ARM -->
-            <div class="governance-pillar-card" id="pillar-foundation">
-              <div class="pillar-card-header">
-                <div class="pillar-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2l10 8H2l10-8z"/></svg>
-                </div>
-                <span class="pillar-statutory-badge">Section 135(4) Agency</span>
-              </div>
-              <h4>Philanthropic Arm & Monitoring</h4>
-              <p>Pace Foundation, as the dedicated philanthropic arm, drives ground-level coordination, conducts physical inspections, and ensures zero intermediary diversion of charitable capital.</p>
-              <div class="pillar-card-footer">
-                <a href="#entities" class="pillar-link-btn">
-                  <span>Explore Participating Entities</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-              </div>
+        <div class="accordion-item dropdown-section" id="accordion-governance">
+          <button class="accordion-header main-dropdown-header" onclick="toggleDropdownSection('governance', event)" aria-expanded="false">
+            <h2 class="accordion-main-title">Governance and Oversight</h2>
+            <span class="accordion-arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+          <div class="accordion-collapse">
+            <div class="accordion-body governance-body-content">
+              <p>
+                Pace Group’s shared CSR commitment is backed by clear accountability at each company level. Every participating company carries out its CSR activities under its own CSR Policy, approvals and legal obligations under Section 135 of the Companies Act, 2013, Schedule VII and the CSR Rules, as applicable; a common group identity does not replace the responsibilities of individual companies. The Board of each company approves its CSR Policy and expenditure, oversees implementation and ensures the required reporting and disclosures. Where applicable, a CSR Committee supports the Board by recommending the CSR Policy, expenditure and Annual Action Plan and by monitoring approved initiatives; where a separate committee is not required, the Board discharges these functions. The internal CSR team provides day-to-day oversight, evaluating proposals, engaging implementation partners, tracking project milestones, conducting field reviews, and maintaining progress and other documentation for review by the relevant company’s governance bodies. Pace Foundation, which was established by Pace Group, acts as an implementation partner, alongside other eligible partners where appropriate. Responsibility for CSR commitments, expenditure and disclosures always stays with the individual company, and every project is attributed to that company and its implementing organisation.
+              </p>
             </div>
           </div>
-
-          
         </div>
       </div>
     </section>
 
-    <!-- ==================== PHOTO GALLERY / IMAGE RIBBON ==================== -->
+    <!-- ==================== 2. STATUTORY DISCLOSURES (BOSCH-STYLE DROPDOWN) ==================== -->
+    <section class="section disclosures-section" id="statutory-disclosures">
+      <div class="container">
+        <div class="accordion-item dropdown-section" id="accordion-disclosures">
+          <button class="accordion-header main-dropdown-header" onclick="toggleDropdownSection('disclosures', event)" aria-expanded="false">
+            <h2 class="accordion-main-title">Statutory disclosures</h2>
+            <span class="accordion-arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+          <div class="accordion-collapse">
+            <div class="accordion-body disclosures-body-content">
+              <p class="disclosures-lead-text">
+                In accordance with Section 135 of the Companies Act, 2013, and the applicable CSR Rules, Board-approved CSR Policies, Annual Action Plans, and CSR Committee compositions, as applicable, are publicly accessible below.
+              </p>
+
+              <!-- Three tabs: Pace Digitek, LPPL, and PREPL -->
+              <div class="statutory-company-tabs" role="tablist" aria-label="Company Disclosures">
+                <button class="statutory-comp-btn active" id="btn-comp-pdl" role="tab" aria-selected="true" onclick="selectDisclosureCompany('pdl', event)">Pace Digitek</button>
+                <button class="statutory-comp-btn" id="btn-comp-lppl" role="tab" aria-selected="false" onclick="selectDisclosureCompany('lppl', event)">LPPL</button>
+                <button class="statutory-comp-btn" id="btn-comp-prepl" role="tab" aria-selected="false" onclick="selectDisclosureCompany('prepl', event)">PREPL</button>
+              </div>
+
+              <!-- When each tab is clicked, it shows the three tabs, which lead to the document. No sentences or explanations are required. -->
+              <div class="statutory-docs-display">
+                <!-- Panel 1: Pace Digitek -->
+                <div class="statutory-comp-panel active" id="panel-comp-pdl" role="tabpanel">
+                  <div class="document-links-group">
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-policy')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                      <span>CSR Policy</span>
+                    </button>
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-plan')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                      <span>Annual Action Plan</span>
+                    </button>
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-committee')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      <span>CSR Committee Composition</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Panel 2: LPPL -->
+                <div class="statutory-comp-panel" id="panel-comp-lppl" role="tabpanel">
+                  <div class="document-links-group">
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-policy')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                      <span>CSR Policy</span>
+                    </button>
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-plan')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                      <span>Annual Action Plan</span>
+                    </button>
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-committee')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      <span>CSR Committee Composition</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Panel 3: PREPL -->
+                <div class="statutory-comp-panel" id="panel-comp-prepl" role="tabpanel">
+                  <div class="document-links-group">
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-policy')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                      <span>CSR Policy</span>
+                    </button>
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-plan')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                      <span>Annual Action Plan</span>
+                    </button>
+                    <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-committee')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      <span>CSR Committee Composition</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. GALLERY ==================== -->
     <section class="section gallery-section" id="gallery">
-      <h2 class="sr-only">On-Ground Transformation Photo Gallery</h2>
+      <div class="container text-center">
+        <h2 class="section-title">Gallery</h2>
+      </div>
 
-      <!-- Scrolling Image Ribbon (Continuous rolling photography across themes with zero people) -->
-      <div class="carousel-container" aria-label="On-Ground Infrastructure Photo Ribbon">
+      <!-- Scrolling Image Ribbon: NO wording, just photos running across -->
+      <div class="carousel-container" aria-label="Photo Ribbon">
         <div class="ribbon-track" id="ribbonTrack">
-          <!-- Item 1: Gangasandra Building Exterior -->
-          <div class="ribbon-item" data-photo="assets/images/gangasandra-1.jpg" data-title="Gangasandra Government School" data-desc="Complete civil overhaul, structural waterproofing, and exterior facade modernization">
-            <img src="assets/images/gangasandra-1.jpg" alt="Gangasandra Government School renovated facade and building" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Gangasandra Government School</span>
-              <span class="ribbon-action">Structural Restoration & Facade ↗</span>
-            </div>
+          <!-- 9 Photographs from Photographs/main -->
+          <div class="ribbon-item" onclick="openLightbox('assets/images/gangasandra-1.jpg')">
+            <img src="assets/images/gangasandra-1.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-1.jpg')">
+            <img src="assets/images/ramohalli-1.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/doddabasti-1.jpg')">
+            <img src="assets/images/doddabasti-1.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/gangasandra-2.jpg')">
+            <img src="assets/images/gangasandra-2.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-2.jpg')">
+            <img src="assets/images/ramohalli-2.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/doddabasti-2.jpg')">
+            <img src="assets/images/doddabasti-2.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-3.jpg')">
+            <img src="assets/images/ramohalli-3.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/doddabasti-3.jpg')">
+            <img src="assets/images/doddabasti-3.jpg" alt="Field Photo" loading="lazy">
+          </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-4.jpg')">
+            <img src="assets/images/ramohalli-4.jpg" alt="Field Photo" loading="lazy">
           </div>
 
-          <!-- Item 2: Ramohalli Classroom Interior -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-1.jpg" data-title="Ramohalli School Classroom" data-desc="Newly installed ergonomic dual benches and freshly painted modern classrooms">
-            <img src="assets/images/ramohalli-1.jpg" alt="Upgraded classroom with dual benches at Ramohalli School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">Dual Benches & Learning Spaces ↗</span>
-            </div>
+          <!-- Repeated set for seamless infinite scroll -->
+          <div class="ribbon-item" onclick="openLightbox('assets/images/gangasandra-1.jpg')">
+            <img src="assets/images/gangasandra-1.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 3: Doddabasti Learning Spaces -->
-          <div class="ribbon-item" data-photo="assets/images/doddabasti-1.jpg" data-title="Doddabasti Government School" data-desc="Upgraded primary classroom with refreshed lighting, chalkboards, and ergonomic seating">
-            <img src="assets/images/doddabasti-1.jpg" alt="Modern classroom interior and seating at Doddabasti School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Doddabasti Government School</span>
-              <span class="ribbon-action">Classroom Upgrades & Desks ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-1.jpg')">
+            <img src="assets/images/ramohalli-1.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 4: Gangasandra Campus & Compound -->
-          <div class="ribbon-item" data-photo="assets/images/gangasandra-2.jpg" data-title="Gangasandra Campus & Compound" data-desc="Turnkey campus refurbishment, safe perimeter walling, and building weather-protection">
-            <img src="assets/images/gangasandra-2.jpg" alt="Renovated campus building and grounds at Gangasandra Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Gangasandra Government School</span>
-              <span class="ribbon-action">Campus Infrastructure Overhaul ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/doddabasti-1.jpg')">
+            <img src="assets/images/doddabasti-1.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 5: Ramohalli Learning Facility -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-2.jpg" data-title="Ramohalli Learning Facility" data-desc="Full classroom restoration with high-grade student desks, green writing boards, and electrical fittings">
-            <img src="assets/images/ramohalli-2.jpg" alt="Refurbished classroom environment at Ramohalli Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">Refurbished Classrooms & Boards ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/gangasandra-2.jpg')">
+            <img src="assets/images/gangasandra-2.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 6: Doddabasti School Furniture -->
-          <div class="ribbon-item" data-photo="assets/images/doddabasti-2.jpg" data-title="Doddabasti School Furniture" data-desc="Durable classroom dual-desk infrastructure replacing floor seating to support dignified learning">
-            <img src="assets/images/doddabasti-2.jpg" alt="Dual bench desks setup at Doddabasti Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Doddabasti Government School</span>
-              <span class="ribbon-action">Ergonomic Classroom Desks ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-2.jpg')">
+            <img src="assets/images/ramohalli-2.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 7: Ramohalli Educational Murals -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-3.jpg" data-title="Ramohalli Learning Corridor" data-desc="Vibrant educational wall murals and restored corridor spaces stimulating young minds">
-            <img src="assets/images/ramohalli-3.jpg" alt="Educational wall murals along school corridor at Ramohalli" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">Educational Murals & Corridor ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/doddabasti-2.jpg')">
+            <img src="assets/images/doddabasti-2.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 8: Doddabasti Facilities & Infrastructure -->
-          <div class="ribbon-item" data-photo="assets/images/doddabasti-3.jpg" data-title="Doddabasti Facilities & Infrastructure" data-desc="Dedicated sanitation, drinking water, and hygienic facilities ensuring student dignity and health">
-            <img src="assets/images/doddabasti-3.jpg" alt="Clean dedicated facility infrastructure at Doddabasti Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Doddabasti Government School</span>
-              <span class="ribbon-action">Dedicated Student Facilities ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-3.jpg')">
+            <img src="assets/images/ramohalli-3.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- Item 9: Ramohalli School Entrance -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-4.jpg" data-title="Ramohalli School Entrance" data-desc="Restored main school entrance archway, secure gate, and boundary perimeter">
-            <img src="assets/images/ramohalli-4.jpg" alt="Restored main entrance gate and archway at Ramohalli Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">School Gateway & Security ↗</span>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/doddabasti-3.jpg')">
+            <img src="assets/images/doddabasti-3.jpg" alt="Field Photo" loading="lazy">
           </div>
-
-          <!-- DUPLICATE SET FOR INFINITE SMOOTH SCROLL (9 Photos Repeated) -->
-          <!-- Item 10: Gangasandra Building Exterior -->
-          <div class="ribbon-item" data-photo="assets/images/gangasandra-1.jpg" data-title="Gangasandra Government School" data-desc="Complete civil overhaul, structural waterproofing, and exterior facade modernization">
-            <img src="assets/images/gangasandra-1.jpg" alt="Gangasandra Government School renovated facade and building" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Gangasandra Government School</span>
-              <span class="ribbon-action">Structural Restoration & Facade ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 11: Ramohalli Classroom Interior -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-1.jpg" data-title="Ramohalli School Classroom" data-desc="Newly installed ergonomic dual benches and freshly painted modern classrooms">
-            <img src="assets/images/ramohalli-1.jpg" alt="Upgraded classroom with dual benches at Ramohalli School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">Dual Benches & Learning Spaces ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 12: Doddabasti Learning Spaces -->
-          <div class="ribbon-item" data-photo="assets/images/doddabasti-1.jpg" data-title="Doddabasti Government School" data-desc="Upgraded primary classroom with refreshed lighting, chalkboards, and ergonomic seating">
-            <img src="assets/images/doddabasti-1.jpg" alt="Modern classroom interior and seating at Doddabasti School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Doddabasti Government School</span>
-              <span class="ribbon-action">Classroom Upgrades & Desks ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 13: Gangasandra Campus & Compound -->
-          <div class="ribbon-item" data-photo="assets/images/gangasandra-2.jpg" data-title="Gangasandra Campus & Compound" data-desc="Turnkey campus refurbishment, safe perimeter walling, and building weather-protection">
-            <img src="assets/images/gangasandra-2.jpg" alt="Renovated campus building and grounds at Gangasandra Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Gangasandra Government School</span>
-              <span class="ribbon-action">Campus Infrastructure Overhaul ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 14: Ramohalli Learning Facility -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-2.jpg" data-title="Ramohalli Learning Facility" data-desc="Full classroom restoration with high-grade student desks, green writing boards, and electrical fittings">
-            <img src="assets/images/ramohalli-2.jpg" alt="Refurbished classroom environment at Ramohalli Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">Refurbished Classrooms & Boards ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 15: Doddabasti School Furniture -->
-          <div class="ribbon-item" data-photo="assets/images/doddabasti-2.jpg" data-title="Doddabasti School Furniture" data-desc="Durable classroom dual-desk infrastructure replacing floor seating to support dignified learning">
-            <img src="assets/images/doddabasti-2.jpg" alt="Dual bench desks setup at Doddabasti Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Doddabasti Government School</span>
-              <span class="ribbon-action">Ergonomic Classroom Desks ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 16: Ramohalli Educational Murals -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-3.jpg" data-title="Ramohalli Learning Corridor" data-desc="Vibrant educational wall murals and restored corridor spaces stimulating young minds">
-            <img src="assets/images/ramohalli-3.jpg" alt="Educational wall murals along school corridor at Ramohalli" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">Educational Murals & Corridor ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 17: Doddabasti Facilities & Infrastructure -->
-          <div class="ribbon-item" data-photo="assets/images/doddabasti-3.jpg" data-title="Doddabasti Facilities & Infrastructure" data-desc="Dedicated sanitation, drinking water, and hygienic facilities ensuring student dignity and health">
-            <img src="assets/images/doddabasti-3.jpg" alt="Clean dedicated facility infrastructure at Doddabasti Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Doddabasti Government School</span>
-              <span class="ribbon-action">Dedicated Student Facilities ↗</span>
-            </div>
-          </div>
-
-          <!-- Item 18: Ramohalli School Entrance -->
-          <div class="ribbon-item" data-photo="assets/images/ramohalli-4.jpg" data-title="Ramohalli School Entrance" data-desc="Restored main school entrance archway, secure gate, and boundary perimeter">
-            <img src="assets/images/ramohalli-4.jpg" alt="Restored main entrance gate and archway at Ramohalli Government School" loading="lazy">
-            <div class="ribbon-overlay">
-              <span class="ribbon-school">Ramohalli Government School</span>
-              <span class="ribbon-action">School Gateway & Security ↗</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-hint-row text-center mt-3">
-        <span class="gallery-badge-hint">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          Click any photograph to view high-resolution infrastructure details • Hover to pause scroll
-        </span>
-      </div>
-    </section>
-
-    <!-- ==================== STATUTORY TRANSPARENCY (ENTITY TABS) ==================== -->
-    <section class="section documents-section" id="documents">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">CSR Policies & Public Disclosures</h2>
-          <p class="section-subtitle">
-            In accordance with Section 135 of the Companies Act, 2013, and the applicable CSR Rules, Board-approved CSR Policies, Annual Action Plans, and CSR Committee compositions are publicly accessible below.
-          </p>
-        </div>
-
-        <div class="statutory-tabs-wrapper">
-          <div class="statutory-tabs-nav" role="tablist" aria-label="Company Statutory Disclosures">
-            <button class="statutory-tab-btn active" role="tab" aria-selected="true" aria-controls="stat-pdl" id="tab-pdl" onclick="switchStatutoryTab('tab-pdl', event)">
-              <span class="company-name">Pace Digitek Limited</span>
-            </button>
-            <button class="statutory-tab-btn" role="tab" aria-selected="false" aria-controls="stat-lppl" id="tab-lppl" onclick="switchStatutoryTab('tab-lppl', event)">
-              <span class="company-name">Lineage Power Private Limited</span>
-            </button>
-            <button class="statutory-tab-btn" role="tab" aria-selected="false" aria-controls="stat-prepl" id="tab-prepl" onclick="switchStatutoryTab('tab-prepl', event)">
-              <span class="company-name">Pace Renewable Energies Private Limited</span>
-            </button>
-          </div>
-
-          <div class="statutory-tabs-content">
-            <!-- TAB 1: PDL -->
-            <div class="statutory-tab-panel active" id="stat-pdl" role="tabpanel" aria-labelledby="tab-pdl">
-              <div class="documents-grid">
-                <!-- Card 1: CSR Policy -->
-                <div class="doc-card" id="doc-pdl-policy">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">Statutory PDF • Board Approved</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Pace Digitek Limited</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>CSR Policy Framework</h5>
-                    <p>Board-approved policy under Section 135 outlining core focus areas (Education, Healthcare, Elder Care), 2% statutory computation, and transparent execution mechanisms.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('pdl-policy')">
-                      <span>Read Provisions</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('pdl-policy')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Card 2: Annual Action Plan -->
-                <div class="doc-card" id="doc-pdl-plan">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">FY 2025–26 • Sanctioned</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Pace Digitek Limited</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>Annual Action Plan FY 2025–26</h5>
-                    <p>Comprehensive schedule of sanctioned CSR projects, civil infrastructure timelines, budget disbursement milestones, and monitoring protocols.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('pdl-plan')">
-                      <span>Read Plan Details</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('pdl-plan')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Card 3: CSR Committee -->
-                <div class="doc-card" id="doc-pdl-committee">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">Statutory Mandate • Rule 5</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Pace Digitek Limited</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>Composition of CSR Committee</h5>
-                    <p>Details of Directors constituting the Corporate Social Responsibility Committee, designated roles, meeting frequency, and committee terms of reference.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('pdl-committee')">
-                      <span>View Committee</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('pdl-committee')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- TAB 2: LPPL -->
-            <div class="statutory-tab-panel" id="stat-lppl" role="tabpanel" aria-labelledby="tab-lppl">
-              <div class="documents-grid">
-                <!-- Card 1 -->
-                <div class="doc-card" id="doc-lppl-policy">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">Statutory PDF • Board Approved</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Lineage Power Private Limited</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>CSR Policy Framework</h5>
-                    <p>Board-approved policy under Section 135 outlining Lineage Power's participation in community infrastructure, healthcare support, and zero diversion principles.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('lppl-policy')">
-                      <span>Read Provisions</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('lppl-policy')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="doc-card" id="doc-lppl-plan">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">FY 2025–26 • Sanctioned</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Lineage Power Private Limited</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>Annual Action Plan FY 2025–26</h5>
-                    <p>Details of approved capital allocations, co-funded community projects, and verified monitoring milestones for the financial year.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('lppl-plan')">
-                      <span>Read Plan Details</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('lppl-plan')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="doc-card" id="doc-lppl-committee">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">Statutory Mandate • Rule 5</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Lineage Power Private Limited</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>Composition of CSR Committee</h5>
-                    <p>Details of Directors constituting the CSR Committee for Lineage Power Private Limited in compliance with Section 135(2).</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('lppl-committee')">
-                      <span>View Committee</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('lppl-committee')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- TAB 3: PREPL -->
-            <div class="statutory-tab-panel" id="stat-prepl" role="tabpanel" aria-labelledby="tab-prepl">
-              <div class="documents-grid">
-                <!-- Card 1 -->
-                <div class="doc-card" id="doc-prepl-policy">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">Statutory PDF • Board Approved</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Pace Renewable Energies</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>CSR Policy Framework</h5>
-                    <p>Board-approved policy under Section 135 guiding sustainable renewable energy initiatives, rural empowerment, and community assistance.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('prepl-policy')">
-                      <span>Read Provisions</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('prepl-policy')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="doc-card" id="doc-prepl-plan">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">FY 2025–26 • Sanctioned</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Pace Renewable Energies</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>Annual Action Plan FY 2025–26</h5>
-                    <p>Schedule of approved philanthropic allocations, rural electrification support, and institutional partnerships for the year.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('prepl-plan')">
-                      <span>Read Plan Details</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('prepl-plan')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="doc-card" id="doc-prepl-committee">
-                  <div class="doc-card-badge-row">
-                    <span class="doc-status-badge">Statutory Mandate • Rule 5</span>
-                  </div>
-                  <div class="doc-card-header-row">
-                    <div class="doc-card-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <span class="doc-entity-tag">Pace Renewable Energies</span>
-                  </div>
-                  <div class="doc-card-body">
-                    <h5>Composition of CSR Committee</h5>
-                    <p>Details of Directors constituting the Corporate Social Responsibility Committee for Pace Renewable Energies Private Limited.</p>
-                  </div>
-                  <div class="doc-card-actions">
-                    <button type="button" class="btn btn-outline btn-sm doc-btn-view" onclick="openDocModal('prepl-committee')">
-                      <span>View Committee</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm doc-btn-dl" onclick="downloadDocSummary('prepl-committee')">
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="ribbon-item" onclick="openLightbox('assets/images/ramohalli-4.jpg')">
+            <img src="assets/images/ramohalli-4.jpg" alt="Field Photo" loading="lazy">
           </div>
         </div>
       </div>
     </section>
+  </main>
 
-    </main>
-
-  <!-- ==================== FOOTER ==================== -->
-    <!-- ==================== FOOTER ==================== -->
-  <footer class="site-footer" id="footer">
+  <!-- ==================== 4. CONTACT ==================== -->
+  <footer class="site-footer" id="contact">
     <div class="container">
-      <div class="footer-simple-grid">
-        <!-- BRAND & PURPOSE COL -->
-        <div class="footer-brand-col">
-          <div class="footer-logo-box">
-            <img src="assets/images/logo-transparent.png" alt="Pace Foundation Logo" class="footer-brand-logo">
-          </div>
-          <p class="footer-about-text">
-            Dedicated philanthropic arm extending Pace Group's commitment to connecting and powering India into sustainable, healthy, and educated communities.
-          </p>
-          <div class="footer-compliance-tag">
-            <span class="shield-icon">🛡️</span>
-            <span>Operating under Section 135, Companies Act 2013</span>
-          </div>
+      <div class="contact-card-wrapper">
+        <div class="contact-logo-box">
+          <img src="assets/images/logo-transparent.png" alt="Pace Foundation Logo" class="contact-brand-logo">
         </div>
-
-        <!-- CONTACT DETAILS -->
-        <div class="footer-links-col" id="contact-details">
-          <h5>Contact Details</h5>
-          <ul class="footer-contact-compact-list">
-            <li>
-              <span class="compact-label">Corporate Office</span>
-              <p class="compact-desc">Pace Digitek Limited / Pace Foundation<br>Bengaluru, Karnataka, India</p>
-            </li>
-            <li>
-              <span class="compact-label">CSR Official Email</span>
-              <a href="mailto:csr@pacedigitek.com" class="compact-link">csr@pacedigitek.com</a>
-            </li>
-            <li>
-              <span class="compact-label">CSR Desk</span>
-              <a href="tel:+918040404040" class="compact-link">+91 80 4040 4040</a>
-              <span class="compact-sub">Mon–Fri • 9:30 AM to 5:30 PM IST</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-bottom-inner" style="justify-content: center; text-align: center;">
-          <p class="copyright-text">
-            © 2026 Pace Foundation. Dedicated Philanthropic Arm of Pace Group.
-          </p>
+        <p class="contact-tagline">Dedicated Philanthropic Arm of Pace Group.</p>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <span class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span class="contact-text">Plot # V 12, Industrial Estate, Kumbalgodu, Bangalore Mysore Highway, Bangalore, Karnataka, India, 560074</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
+            <a href="mailto:csr@pacedigitek.com" class="contact-email-link">csr@pacedigitek.com</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1462,110 +735,171 @@
     </div>
   </div>
 
+  <!-- ==================== ENTITY POP-OUT MODAL ==================== -->
+  <div class="entity-modal" id="entityModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="entity-modal-backdrop" onclick="closeEntityModal()"></div>
+    <div class="entity-modal-dialog">
+      <button class="entity-modal-close" onclick="closeEntityModal()" aria-label="Close entity details">✕</button>
+      <div class="entity-modal-header">
+        <div class="entity-modal-logo-wrap">
+          <img id="entityModalLogo" src="assets/images/logo-pdl.png" alt="Entity Logo" class="entity-modal-logo">
+        </div>
+        <div class="entity-modal-title-wrap">
+          <h3 id="entityModalTitle" class="entity-modal-title">Pace Digitek Limited</h3>
+          <span id="entityModalSector" class="entity-modal-sector">Integrated Infrastructure &amp; Energy Solutions</span>
+        </div>
+      </div>
+      <div class="entity-modal-body">
+        <p id="entityModalDesc" class="entity-modal-desc"></p>
+      </div>
+      <div class="entity-modal-footer">
+        <a id="entityModalLink" href="https://pacedigitek.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <span id="entityModalLinkText">Visit Official Website</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- JavaScript -->
-        <!-- Fail-Safe Core Interactivity Script -->
+  <!-- Fail-Safe Core Interactivity Script -->
   <script>
-    window.toggleThemeTab = function(themeKey, e) {
+    // 1. Entity Pop-out Modal Data & Controls
+    var entityData = {
+      pdl: {
+        title: 'Pace Digitek Limited',
+        sector: 'Integrated Infrastructure & Energy Solutions',
+        logo: 'assets/images/logo-pdl.png',
+        desc: "An integrated infrastructure and energy solutions company operating across the Telecom & ICT and Energy sectors. With capabilities spanning manufacturing, Engineering, Procurement & Construction (EPC), and Operations & Maintenance (O&M), Pace Digitek delivers comprehensive solutions across telecom infrastructure, digital connectivity and advanced energy storage. Through its diverse business capabilities, the company supports critical infrastructure development and India's evolving energy landscape.",
+        link: 'https://pacedigitek.com',
+        linkText: 'Visit Official Website'
+      },
+      lppl: {
+        title: 'Lineage Power Private Limited',
+        sector: 'Telecom Power & Energy Storage Solutions',
+        logo: 'assets/images/logo-lppl.png',
+        desc: 'A dedicated manufacturing company specialising in telecom passive power and battery energy storage solutions. Lineage Power designs, engineers and manufactures high-availability DC power systems, hybrid platforms and containerised Battery Energy Storage Systems (BESS) for telecom operators, data centres, utilities and renewable energy projects. Combining advanced manufacturing capabilities, engineering expertise and integrated lifecycle services, the company delivers reliable power infrastructure solutions across India and select international markets.',
+        link: 'https://lineagepower.com',
+        linkText: 'Visit Official Website'
+      },
+      foundation: {
+        title: 'Pace Foundation',
+        sector: 'Philanthropic Arm',
+        logo: 'assets/images/logo-transparent.png',
+        desc: 'Pace Group established Pace Foundation as its philanthropic arm for coordinating and implementing its community initiatives.',
+        link: 'https://pacedigitek.com',
+        linkText: 'Visit Pace Group Website'
+      },
+      prepl: {
+        title: 'Pace Renewable Energies Private Limited',
+        sector: 'Clean Energy Partner',
+        logo: 'assets/images/logo-prepl.png',
+        desc: 'A dedicated renewable energy company accelerating solar power deployment and clean energy generation across rural and commercial India. Contributing alongside Pace Digitek through sustainable environmental practices, clean energy literacy, and community-centered ecological initiatives that leave a cleaner footprint for the future.',
+        link: 'https://pacedigitek.com',
+        linkText: 'Visit Official Website'
+      }
+    };
+
+    window.openEntityModal = function(key, e) {
       if (e) {
         if (e.preventDefault) e.preventDefault();
         if (e.stopPropagation) e.stopPropagation();
       }
-      var container = document.getElementById('theme-detail-container');
-      var allCards = document.querySelectorAll('.theme-square-card');
-      var allPanels = document.querySelectorAll('.theme-detail-panel');
-      var labelEl = document.getElementById('detail-active-label');
+      var data = entityData[key];
+      if (!data) return;
 
-      if (themeKey === 'close') {
-        if (container) container.classList.add('collapsed');
-        for (var i = 0; i < allCards.length; i++) {
-          allCards[i].classList.remove('active');
-          allCards[i].setAttribute('aria-expanded', 'false');
-        }
-        return;
+      var modal = document.getElementById('entityModal');
+      var titleEl = document.getElementById('entityModalTitle');
+      var sectorEl = document.getElementById('entityModalSector');
+      var logoEl = document.getElementById('entityModalLogo');
+      var descEl = document.getElementById('entityModalDesc');
+      var linkEl = document.getElementById('entityModalLink');
+      var linkTextEl = document.getElementById('entityModalLinkText');
+
+      if (titleEl) titleEl.textContent = data.title;
+      if (sectorEl) sectorEl.textContent = data.sector;
+      if (logoEl) logoEl.src = data.logo;
+      if (descEl) descEl.textContent = data.desc;
+      if (linkEl) linkEl.href = data.link;
+      if (linkTextEl) linkTextEl.textContent = data.linkText || 'Visit Official Website';
+
+      if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
       }
-
-      var targetCard = document.getElementById('card-' + themeKey);
-      var targetPanel = document.getElementById('detail-' + themeKey);
-      if (!targetCard || !targetPanel) return;
-
-      var isAlreadyActive = targetCard.classList.contains('active') && !container.classList.contains('collapsed');
-
-      if (isAlreadyActive) {
-        container.classList.add('collapsed');
-        targetCard.classList.remove('active');
-        targetCard.setAttribute('aria-expanded', 'false');
-        return;
-      }
-
-      if (container) container.classList.remove('collapsed');
-
-      for (var j = 0; j < allCards.length; j++) {
-        var isThis = (allCards[j] === targetCard);
-        if (isThis) {
-          allCards[j].classList.add('active');
-          allCards[j].setAttribute('aria-expanded', 'true');
-        } else {
-          allCards[j].classList.remove('active');
-          allCards[j].setAttribute('aria-expanded', 'false');
-        }
-      }
-
-      for (var k = 0; k < allPanels.length; k++) {
-        if (allPanels[k] === targetPanel) {
-          allPanels[k].classList.add('active');
-        } else {
-          allPanels[k].classList.remove('active');
-        }
-      }
-
-      var labels = {
-        'education': 'Theme 01 • Education: School Infrastructure Development',
-        'healthcare': 'Theme 02 • Healthcare: Mobility Aids & Patient Care',
-        'elderly': 'Theme 03 • Elderly Care: Dignified Living for Senior Citizens',
-        'responsive': 'Theme 04 • Responsive Need-Based Community Intervention'
-      };
-      if (labelEl && labels[themeKey]) {
-        labelEl.textContent = labels[themeKey];
-      }
+      document.body.style.overflow = 'hidden';
     };
 
-    window.toggleFocusCard = function(cardOrId, e) {
-      var id = typeof cardOrId === 'string' ? cardOrId : (cardOrId.id || '');
-      var key = id.replace('card-', '').replace('detail-', '').replace('content-', '');
-      window.toggleThemeTab(key, e);
+    window.closeEntityModal = function() {
+      var modal = document.getElementById('entityModal');
+      if (modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      document.body.style.overflow = '';
     };
 
-    window.expandFocusCard = function(cardOrId) {
-      var id = typeof cardOrId === 'string' ? cardOrId : (cardOrId.id || '');
-      var key = id.replace('card-', '').replace('detail-', '').replace('content-', '');
-      window.toggleThemeTab(key);
-    };
-
-    window.switchStatutoryTab = function(tabId, e) {
+    // 2. Focus Themes Accordion (Bosch Style)
+    window.toggleThemeAccordion = function(themeKey, e) {
       if (e) {
         if (e.preventDefault) e.preventDefault();
         if (e.stopPropagation) e.stopPropagation();
       }
-      var tabBtn = document.getElementById(tabId);
-      if (!tabBtn) return;
-      var targetPanelId = tabBtn.getAttribute('aria-controls');
-      var allButtons = document.querySelectorAll('.statutory-tab-btn');
-      var allPanels = document.querySelectorAll('.statutory-tab-panel');
-      for (var i = 0; i < allButtons.length; i++) {
-        allButtons[i].classList.remove('active');
-        allButtons[i].setAttribute('aria-selected', 'false');
-      }
-      tabBtn.classList.add('active');
-      tabBtn.setAttribute('aria-selected', 'true');
-      for (var j = 0; j < allPanels.length; j++) {
-        if (allPanels[j].id === targetPanelId) {
-          allPanels[j].classList.add('active');
-        } else {
-          allPanels[j].classList.remove('active');
-        }
+      var targetItem = document.getElementById('accordion-theme-' + themeKey);
+      if (!targetItem) return;
+
+      var isAlreadyActive = targetItem.classList.contains('active');
+      var allItems = document.querySelectorAll('.theme-accordion-item');
+
+      allItems.forEach(function(item) {
+        item.classList.remove('active');
+        var btn = item.querySelector('.accordion-header');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isAlreadyActive) {
+        targetItem.classList.add('active');
+        var btn = targetItem.querySelector('.accordion-header');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
       }
     };
 
+    // 3. Main Dropdowns (Governance & Statutory Disclosures)
+    window.toggleDropdownSection = function(sectionKey, e) {
+      if (e) {
+        if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
+      }
+      var targetItem = document.getElementById('accordion-' + sectionKey);
+      if (!targetItem) return;
+
+      var isExpanded = targetItem.classList.toggle('active');
+      var btn = targetItem.querySelector('.accordion-header');
+      if (btn) btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    };
+
+    // 4. Statutory Disclosures Company Switcher
+    window.selectDisclosureCompany = function(compKey, e) {
+      if (e) {
+        if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
+      }
+      var allButtons = document.querySelectorAll('.statutory-comp-btn');
+      var allPanels = document.querySelectorAll('.statutory-comp-panel');
+
+      allButtons.forEach(function(btn) {
+        var isTarget = btn.id === ('btn-comp-' + compKey);
+        btn.classList.toggle('active', isTarget);
+        btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+      });
+
+      allPanels.forEach(function(panel) {
+        var isTarget = panel.id === ('panel-comp-' + compKey);
+        panel.classList.toggle('active', isTarget);
+      });
+    };
+
+    // 5. Mobile Menu Toggle
     window.toggleMobileMenu = function(e) {
       if (e) {
         if (e.preventDefault) e.preventDefault();
@@ -1578,8 +912,41 @@
         mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       }
     };
+
+    // 6. Photo Lightbox Modal
+    window.openLightbox = function(photoSrc, title, desc) {
+      var lightboxModal = document.getElementById('lightboxModal');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxTitle = document.getElementById('lightboxTitle');
+      var lightboxDesc = document.getElementById('lightboxDesc');
+
+      if (!lightboxModal || !lightboxImg) return;
+      lightboxImg.src = photoSrc;
+      if (lightboxTitle) lightboxTitle.textContent = title || 'Infrastructure Photograph';
+      if (lightboxDesc) lightboxDesc.textContent = desc || 'Pace Group Corporate Social Responsibility Field Initiative';
+      lightboxModal.classList.add('active');
+      lightboxModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeLightbox = function() {
+      var lightboxModal = document.getElementById('lightboxModal');
+      if (!lightboxModal) return;
+      lightboxModal.classList.remove('active');
+      lightboxModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    // Escape Key Handler for All Modals
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        window.closeEntityModal();
+        window.closeLightbox();
+        if (typeof window.closeDocModal === 'function') window.closeDocModal();
+      }
+    });
   </script>
   <!-- Full Interactive Logic (Cache-busted) -->
-  <script src="script.js?v=4.0"></script>
+  <script src="script.js?v=5.0"></script>
 </body>
 </html>

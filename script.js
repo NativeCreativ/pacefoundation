@@ -80,29 +80,51 @@ window.closeEntityModal = function() {
   document.body.style.overflow = '';
 };
 
-// 2. Focus Themes: Bosch-Style Dropdowns / Accordions
-window.toggleThemeAccordion = function(themeKey, e) {
-  if (e) {
-    if (e.preventDefault) e.preventDefault();
-    if (e.stopPropagation) e.stopPropagation();
+// 2. Focus Themes: 4 tabs in a row + one detail box below
+// Clicking a tab shows its details; clicking the open tab again closes the box.
+window.selectFocusTheme = function(themeKey) {
+  const card = document.getElementById('card-' + themeKey);
+  const panel = document.getElementById('theme-panel-' + themeKey);
+  const container = document.getElementById('themeDetailContainer');
+  if (!card || !panel || !container) return;
+
+  const isOpen = card.classList.contains('active') && !container.classList.contains('collapsed');
+  if (isOpen) {
+    window.closeFocusTheme();
+    return;
   }
-  const targetItem = document.getElementById('accordion-theme-' + themeKey);
-  if (!targetItem) return;
 
-  const isAlreadyActive = targetItem.classList.contains('active');
-  const allItems = document.querySelectorAll('.theme-accordion-item');
-
-  allItems.forEach(item => {
-    item.classList.remove('active');
-    const btn = item.querySelector('.accordion-header');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
+  document.querySelectorAll('.theme-square-card').forEach(c => {
+    const active = c === card;
+    c.classList.toggle('active', active);
+    c.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+  document.querySelectorAll('.theme-detail-panel').forEach(p => {
+    p.classList.toggle('active', p === panel);
   });
 
-  if (!isAlreadyActive) {
-    targetItem.classList.add('active');
-    const btn = targetItem.querySelector('.accordion-header');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
+  const label = document.getElementById('themeDetailLabel');
+  const title = card.querySelector('.theme-sq-title');
+  if (label && title) label.textContent = title.textContent;
+
+  container.classList.remove('collapsed');
+
+  // On narrow screens the box can sit below the fold; bring it into view.
+  if (window.innerWidth < 1080) {
+    const header = document.getElementById('header');
+    const offset = (header ? header.offsetHeight : 70) + 12;
+    const top = container.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
+};
+
+window.closeFocusTheme = function() {
+  const container = document.getElementById('themeDetailContainer');
+  if (container) container.classList.add('collapsed');
+  document.querySelectorAll('.theme-square-card').forEach(c => {
+    c.classList.remove('active');
+    c.setAttribute('aria-selected', 'false');
+  });
 };
 
 // 3. Post-SDG Dropdowns (Governance & Oversight, Statutory Disclosures)
@@ -141,7 +163,7 @@ window.selectDisclosureCompany = function(compKey, e) {
 };
 
 // Legacy compatibility aliases
-window.toggleThemeTab = window.toggleThemeAccordion;
+window.toggleThemeTab = window.selectFocusTheme;
 window.switchStatutoryTab = window.selectDisclosureCompany;
 window.selectEntityNode = window.openEntityModal;
 
@@ -533,17 +555,6 @@ function initPaceApp() {
       const caption = el.parentElement.querySelector('.media-caption, span');
       if (img) {
         window.openLightbox(img.src, caption ? caption.textContent : 'Pace CSR Project Photo', 'On-ground infrastructure upgrade');
-      }
-    });
-  });
-
-  // 7. Focus Card Accordion Keyboard Support
-  document.querySelectorAll('.theme-square-card').forEach(header => {
-    header.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const key = header.id.replace('card-', '');
-        window.toggleThemeTab(key);
       }
     });
   });

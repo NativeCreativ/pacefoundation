@@ -5197,3 +5197,123 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===================================================================
+   FOCUS THEMES: 4 TABS IN ONE ROW + DETAIL BOX BELOW (v5.2)
+   =================================================================== */
+.focus-section .theme-squares-grid {
+  margin-top: 0;
+  margin-bottom: 20px;
+  gap: 18px;
+}
+
+.focus-section .theme-square-card {
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  padding: 22px 20px 18px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+.focus-section .theme-square-card:focus-visible {
+  outline: 3px solid rgba(236, 103, 0, 0.45);
+  outline-offset: 3px;
+}
+
+.focus-section .theme-sq-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.focus-section .theme-sq-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.focus-section .theme-sq-title {
+  display: block;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.focus-section .theme-sq-desc {
+  display: block;
+  margin: 0;
+}
+
+.focus-section .theme-sq-footer {
+  display: block;
+  width: 100%;
+  padding-top: 12px;
+}
+
+.focus-section .theme-square-card.active .theme-sq-title {
+  color: var(--pace-orange);
+}
+
+/* The detail box */
+.focus-section .theme-horizontal-detail-container {
+  max-width: none;
+}
+
+.theme-detail-body {
+  padding: 28px;
+}
+
+.theme-detail-body .theme-lead-desc:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1080px) {
+  /* 2 x 2 grid: hide the pointer so it doesn't overlap the second row */
+  .focus-section .theme-square-card.active::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .focus-section .theme-squares-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .focus-section .theme-square-card {
+    padding: 16px 14px 12px;
+    gap: 10px;
+  }
+
+  .focus-section .theme-sq-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .focus-section .theme-sq-title {
+    font-size: 1rem;
+  }
+
+  .focus-section .theme-sq-desc,
+  .focus-section .theme-sq-btn .btn-label {
+    display: none;
+  }
+
+  .focus-section .theme-sq-footer {
+    padding-top: 8px;
+  }
+
+  .focus-section .theme-sq-btn {
+    justify-content: flex-end;
+  }
+
+  .theme-detail-body {
+    padding: 20px;
+  }
+
+  .detail-container-header {
+    padding: 12px 20px;
+  }
+}

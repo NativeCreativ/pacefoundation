@@ -278,7 +278,7 @@
       </div>
     </section>
 
-    <!-- ==================== FOCUS THEMES (BOSCH-STYLE DROPDOWNS / ACCORDIONS) ==================== -->
+    <!-- ==================== FOCUS THEMES (4 TABS + DETAIL BOX) ==================== -->
     <section class="section focus-section" id="focus-themes">
       <div class="container">
         <div class="section-header text-center">
@@ -286,146 +286,187 @@
           <p class="section-subtitle">Delivering targeted, accountable, and sustainable interventions across communities.</p>
         </div>
 
-        <div class="bosch-accordion-group" id="focusAccordionGroup">
-          <!-- THEME 1: EDUCATION -->
-          <div class="accordion-item theme-accordion-item active" id="accordion-theme-education">
-            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('education', event)" aria-expanded="true">
-              <span class="theme-tab-title">Education</span>
-              <span class="accordion-arrow" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        <!-- 4 theme tabs in one row -->
+        <div class="theme-squares-grid" role="tablist" aria-label="Focus themes">
+          <button type="button" class="theme-square-card active" id="card-education" role="tab" aria-selected="true" aria-controls="theme-panel-education" onclick="selectFocusTheme('education')">
+            <span class="theme-sq-icon edu" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </span>
+            <span class="theme-sq-body">
+              <span class="theme-sq-title">Education</span>
+              <span class="theme-sq-desc">School infrastructure, sanitation and seating in government schools</span>
+            </span>
+            <span class="theme-sq-footer">
+              <span class="theme-sq-btn">
+                <span class="btn-label">View details</span>
+                <span class="expand-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
               </span>
-            </button>
-            <div class="accordion-collapse">
-              <div class="accordion-body theme-accordion-body">
-                <p class="theme-lead-desc">
-                  We work to strengthen educational infrastructure in underserved schools through classroom upgrades, sanitation improvements, student seating, and learning resources, helping create supportive environments where children can learn with confidence and dignity.
-                </p>
+            </span>
+          </button>
 
-                <div class="theme-support-wrapper">
-                  <h4 class="support-heading">3 government schools in Bengaluru with following support</h4>
-                  <ul class="support-bullets-list">
-                    <li>Classroom construction/renovation</li>
-                    <li>Dual-seat benches</li>
-                    <li>Dedicated sanitation and water blocks</li>
-                    <li>Educational supplies</li>
-                  </ul>
+          <button type="button" class="theme-square-card" id="card-healthcare" role="tab" aria-selected="false" aria-controls="theme-panel-healthcare" onclick="selectFocusTheme('healthcare')">
+            <span class="theme-sq-icon health" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </span>
+            <span class="theme-sq-body">
+              <span class="theme-sq-title">Healthcare</span>
+              <span class="theme-sq-desc">Mobility aids, child care and patient care equipment</span>
+            </span>
+            <span class="theme-sq-footer">
+              <span class="theme-sq-btn">
+                <span class="btn-label">View details</span>
+                <span class="expand-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+              </span>
+            </span>
+          </button>
 
-                  <div class="theme-impact-callout">
-                    <span class="impact-title">Impact:</span>
-                    <span class="impact-quote">“Average 23% increase in admissions”</span>
-                  </div>
+          <button type="button" class="theme-square-card" id="card-elderly" role="tab" aria-selected="false" aria-controls="theme-panel-elderly" onclick="selectFocusTheme('elderly')">
+            <span class="theme-sq-icon elder" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span class="theme-sq-body">
+              <span class="theme-sq-title">Elderly care</span>
+              <span class="theme-sq-desc">Secure living, healthcare and well-being for senior citizens</span>
+            </span>
+            <span class="theme-sq-footer">
+              <span class="theme-sq-btn">
+                <span class="btn-label">View details</span>
+                <span class="expand-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+              </span>
+            </span>
+          </button>
+
+          <button type="button" class="theme-square-card" id="card-responsive" role="tab" aria-selected="false" aria-controls="theme-panel-responsive" onclick="selectFocusTheme('responsive')">
+            <span class="theme-sq-icon responsive" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            <span class="theme-sq-body">
+              <span class="theme-sq-title">Community Response</span>
+              <span class="theme-sq-desc">One-time support for eligible community needs</span>
+            </span>
+            <span class="theme-sq-footer">
+              <span class="theme-sq-btn">
+                <span class="btn-label">View details</span>
+                <span class="expand-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+              </span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Detail box that opens below the tabs -->
+        <div class="theme-horizontal-detail-container" id="themeDetailContainer">
+          <div class="detail-container-header">
+            <div class="detail-header-left">
+              <span class="detail-indicator-dot"></span>
+              <span class="detail-active-label" id="themeDetailLabel">Education</span>
+            </div>
+            <button type="button" class="detail-close-btn" onclick="closeFocusTheme()" aria-label="Close theme details">✕</button>
+          </div>
+
+          <!-- PANEL 1: EDUCATION -->
+          <div class="theme-detail-panel active" id="theme-panel-education" role="tabpanel" aria-labelledby="card-education">
+            <div class="theme-detail-body">
+              <p class="theme-lead-desc">
+                We work to strengthen educational infrastructure in underserved schools through classroom upgrades, sanitation improvements, student seating, and learning resources, helping create supportive environments where children can learn with confidence and dignity.
+              </p>
+
+              <div class="theme-support-wrapper">
+                <h4 class="support-heading">3 government schools in Bengaluru with following support</h4>
+                <ul class="support-bullets-list">
+                  <li>Classroom construction/renovation</li>
+                  <li>Dual-seat benches</li>
+                  <li>Dedicated sanitation and water blocks</li>
+                  <li>Educational supplies</li>
+                </ul>
+
+                <div class="theme-impact-callout">
+                  <span class="impact-title">Impact:</span>
+                  <span class="impact-quote">“Average 23% increase in admissions”</span>
                 </div>
+              </div>
 
-                <div class="theme-photos-grid">
-                  <div class="theme-photo-card" onclick="openLightbox('assets/images/gangasandra-1.jpg', 'Gangasandra School', 'Upgraded school building and modern classrooms')">
-                    <img src="assets/images/gangasandra-1.jpg" alt="Government Higher Primary School, Gangasandra infrastructure" loading="lazy">
-                  </div>
-                  <div class="theme-photo-card" onclick="openLightbox('assets/images/ramohalli-1.jpg', 'Ramohalli School', 'Dual-seat benches and classroom upgrades')">
-                    <img src="assets/images/ramohalli-1.jpg" alt="Government Higher Primary School, Ramohalli classrooms" loading="lazy">
-                  </div>
-                  <div class="theme-photo-card" onclick="openLightbox('assets/images/doddabasti-1.jpg', 'Doddabasti School', 'Restored classrooms and student seating')">
-                    <img src="assets/images/doddabasti-1.jpg" alt="Government Lower Primary School, Doddabasti classrooms" loading="lazy">
-                  </div>
+              <div class="theme-photos-grid">
+                <div class="theme-photo-card" onclick="openLightbox('assets/images/gangasandra-1.jpg', 'Gangasandra School', 'Upgraded school building and modern classrooms')">
+                  <img src="assets/images/gangasandra-1.jpg" alt="Government Higher Primary School, Gangasandra infrastructure" loading="lazy">
+                </div>
+                <div class="theme-photo-card" onclick="openLightbox('assets/images/ramohalli-1.jpg', 'Ramohalli School', 'Dual-seat benches and classroom upgrades')">
+                  <img src="assets/images/ramohalli-1.jpg" alt="Government Higher Primary School, Ramohalli classrooms" loading="lazy">
+                </div>
+                <div class="theme-photo-card" onclick="openLightbox('assets/images/doddabasti-1.jpg', 'Doddabasti School', 'Restored classrooms and student seating')">
+                  <img src="assets/images/doddabasti-1.jpg" alt="Government Lower Primary School, Doddabasti classrooms" loading="lazy">
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- THEME 2: HEALTHCARE -->
-          <div class="accordion-item theme-accordion-item" id="accordion-theme-healthcare">
-            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('healthcare', event)" aria-expanded="false">
-              <span class="theme-tab-title">Healthcare</span>
-              <span class="accordion-arrow" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-              </span>
-            </button>
-            <div class="accordion-collapse">
-              <div class="accordion-body theme-accordion-body">
-                <p class="theme-lead-desc">
-                  Our healthcare initiatives focus on enhancing mobility, strengthening patient care, and supporting the health and well-being of vulnerable children through partnerships with trusted community organizations.
-                </p>
+          <!-- PANEL 2: HEALTHCARE -->
+          <div class="theme-detail-panel" id="theme-panel-healthcare" role="tabpanel" aria-labelledby="card-healthcare">
+            <div class="theme-detail-body">
+              <p class="theme-lead-desc">
+                Our healthcare initiatives focus on enhancing mobility, strengthening patient care, and supporting the health and well-being of vulnerable children through partnerships with trusted community organizations.
+              </p>
 
-                <div class="healthcare-initiatives-stack">
-                  <!-- Sub-initiative 1 -->
-                  <div class="healthcare-initiative-box">
-                    <div class="init-header">
-                      <span class="init-number">1. Mobility support:</span>
-                      <span class="init-badge">50 Wheelchairs Distributed</span>
-                    </div>
-                    <p class="init-desc">
-                      Supporting persons with locomotor disabilities through the provision of wheelchairs, enabling greater independence, mobility, and participation in daily life.
-                    </p>
-                    <div class="init-next-phase">
-                      <strong>Next Phase:</strong> An additional 50 wheelchairs are planned for distribution during the current year.
-                    </div>
+              <div class="healthcare-initiatives-stack">
+                <div class="healthcare-initiative-box">
+                  <div class="init-header">
+                    <span class="init-number">1. Mobility support:</span>
+                    <span class="init-badge">50 Wheelchairs Distributed</span>
                   </div>
-
-                  <!-- Sub-initiative 2 -->
-                  <div class="healthcare-initiative-box">
-                    <div class="init-header">
-                      <span class="init-number">2. Child Care and Health Support</span>
-                      <span class="init-badge">26 Children Supported</span>
-                    </div>
-                    <p class="init-desc">
-                      Supporting children under residential care with medical assistance, nutrition, education, clothing, and essential day-to-day needs to promote their overall health, development, and well-being.
-                    </p>
-                  </div>
-
-                  <!-- Sub-initiative 3 -->
-                  <div class="healthcare-initiative-box">
-                    <div class="init-header">
-                      <span class="init-number">3. Patient Care Infrastructure</span>
-                      <span class="init-badge">Strengthening Patient Care</span>
-                    </div>
-                    <p class="init-desc">
-                      Supporting healthcare institutions with patient monitoring equipment to improve the quality of care available to underserved communities.
-                    </p>
+                  <p class="init-desc">
+                    Supporting persons with locomotor disabilities through the provision of wheelchairs, enabling greater independence, mobility, and participation in daily life.
+                  </p>
+                  <div class="init-next-phase">
+                    <strong>Next Phase:</strong> An additional 50 wheelchairs are planned for distribution during the current year.
                   </div>
                 </div>
 
-                <div class="theme-photos-grid">
-                  <div class="theme-photo-card" onclick="openLightbox('assets/images/doddabasti-3.jpg', 'Sanitation & Hygiene Infrastructure', 'Dedicated water and sanitation blocks supporting health')">
-                    <img src="assets/images/doddabasti-3.jpg" alt="Dedicated health and sanitation infrastructure at Doddabasti" loading="lazy">
+                <div class="healthcare-initiative-box">
+                  <div class="init-header">
+                    <span class="init-number">2. Child Care and Health Support</span>
+                    <span class="init-badge">26 Children Supported</span>
                   </div>
-                  <div class="theme-photo-card" onclick="openLightbox('assets/images/ramohalli-2.jpg', 'Institutional Facility Care', 'Refurbished healthcare-compliant spaces promoting well-being')">
-                    <img src="assets/images/ramohalli-2.jpg" alt="Upgraded institutional facilities promoting student health" loading="lazy">
+                  <p class="init-desc">
+                    Supporting children under residential care with medical assistance, nutrition, education, clothing, and essential day-to-day needs to promote their overall health, development, and well-being.
+                  </p>
+                </div>
+
+                <div class="healthcare-initiative-box">
+                  <div class="init-header">
+                    <span class="init-number">3. Patient Care Infrastructure</span>
+                    <span class="init-badge">Strengthening Patient Care</span>
                   </div>
+                  <p class="init-desc">
+                    Supporting healthcare institutions with patient monitoring equipment to improve the quality of care available to underserved communities.
+                  </p>
+                </div>
+              </div>
+
+              <div class="theme-photos-grid">
+                <div class="theme-photo-card" onclick="openLightbox('assets/images/doddabasti-3.jpg', 'Sanitation & Hygiene Infrastructure', 'Dedicated water and sanitation blocks supporting health')">
+                  <img src="assets/images/doddabasti-3.jpg" alt="Dedicated health and sanitation infrastructure at Doddabasti" loading="lazy">
+                </div>
+                <div class="theme-photo-card" onclick="openLightbox('assets/images/ramohalli-2.jpg', 'Institutional Facility Care', 'Refurbished healthcare-compliant spaces promoting well-being')">
+                  <img src="assets/images/ramohalli-2.jpg" alt="Upgraded institutional facilities promoting student health" loading="lazy">
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- THEME 3: ELDERLY CARE -->
-          <div class="accordion-item theme-accordion-item" id="accordion-theme-elderly">
-            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('elderly', event)" aria-expanded="false">
-              <span class="theme-tab-title">Elderly care</span>
-              <span class="accordion-arrow" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-              </span>
-            </button>
-            <div class="accordion-collapse">
-              <div class="accordion-body theme-accordion-body">
-                <p class="theme-lead-desc">
-                  Recognizing the growing need for quality elder care, Pace Group is developing an initiative focused on providing secure living environments, healthcare support, and opportunities for social well-being for senior citizens. Planning is currently underway.
-                </p>
-              </div>
+          <!-- PANEL 3: ELDERLY CARE -->
+          <div class="theme-detail-panel" id="theme-panel-elderly" role="tabpanel" aria-labelledby="card-elderly">
+            <div class="theme-detail-body">
+              <p class="theme-lead-desc">
+                Recognizing the growing need for quality elder care, Pace Group is developing an initiative focused on providing secure living environments, healthcare support, and opportunities for social well-being for senior citizens. Planning is currently underway.
+              </p>
             </div>
           </div>
 
-          <!-- THEME 4: COMMUNITY RESPONSE -->
-          <div class="accordion-item theme-accordion-item" id="accordion-theme-responsive">
-            <button class="accordion-header theme-accordion-header" onclick="toggleThemeAccordion('responsive', event)" aria-expanded="false">
-              <span class="theme-tab-title">Community Response</span>
-              <span class="accordion-arrow" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-              </span>
-            </button>
-            <div class="accordion-collapse">
-              <div class="accordion-body theme-accordion-body">
-                <p class="theme-lead-desc">
-                  In addition to our core focus areas, we provide one-time support for eligible community needs that require timely assistance. These interventions are guided by identified requirements from schools, healthcare institutions, community organizations, and local stakeholders, and are evaluated through our established CSR process to ensure meaningful and responsible impact.
-                </p>
-              </div>
+          <!-- PANEL 4: COMMUNITY RESPONSE -->
+          <div class="theme-detail-panel" id="theme-panel-responsive" role="tabpanel" aria-labelledby="card-responsive">
+            <div class="theme-detail-body">
+              <p class="theme-lead-desc">
+                In addition to our core focus areas, we provide one-time support for eligible community needs that require timely assistance. These interventions are guided by identified requirements from schools, healthcare institutions, community organizations, and local stakeholders, and are evaluated through our established CSR process to ensure meaningful and responsible impact.
+              </p>
             </div>
           </div>
         </div>
@@ -765,6 +806,6 @@
 
   <!-- JavaScript -->
   <!-- Full Interactive Logic (Cache-busted) -->
-  <script src="script.js?v=5.1"></script>
+  <script src="script.js?v=5.2"></script>
 </body>
 </html>

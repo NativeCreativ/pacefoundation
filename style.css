@@ -4941,8 +4941,23 @@ button {
 }
 
 /* 3. Post-SDG Sections: Governance & Statutory Disclosures Dropdowns */
+.governance-disclosures-section {
+  padding: 64px 0;
+  background: var(--bg-body);
+}
+
+.governance-disclosures-section .bosch-accordion-group {
+  gap: 16px;
+}
+
+#governance-oversight,
+#statutory-disclosures {
+  scroll-margin-top: 100px;
+}
+
 .dropdown-section {
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   background: #FFFFFF;
   border-radius: 20px;

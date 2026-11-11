@@ -485,103 +485,102 @@
       </div>
     </section>
 
-    <!-- ==================== 1. GOVERNANCE AND OVERSIGHT (BOSCH-STYLE DROPDOWN) ==================== -->
-    <section class="section governance-section" id="governance-oversight">
+    <!-- ==================== GOVERNANCE & STATUTORY DISCLOSURES (BOSCH-STYLE ACCORDIONS) ==================== -->
+    <section class="section governance-disclosures-section" id="governance">
       <div class="container">
-        <div class="accordion-item dropdown-section" id="accordion-governance">
-          <button class="accordion-header main-dropdown-header" onclick="toggleDropdownSection('governance', event)" aria-expanded="false">
-            <h2 class="accordion-main-title">Governance and Oversight</h2>
-            <span class="accordion-arrow" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-            </span>
-          </button>
-          <div class="accordion-collapse">
-            <div class="accordion-body governance-body-content">
-              <p>
-                Pace Group’s shared CSR commitment is backed by clear accountability at each company level. Every participating company carries out its CSR activities under its own CSR Policy, approvals and legal obligations under Section 135 of the Companies Act, 2013, Schedule VII and the CSR Rules, as applicable; a common group identity does not replace the responsibilities of individual companies. The Board of each company approves its CSR Policy and expenditure, oversees implementation and ensures the required reporting and disclosures. Where applicable, a CSR Committee supports the Board by recommending the CSR Policy, expenditure and Annual Action Plan and by monitoring approved initiatives; where a separate committee is not required, the Board discharges these functions. The internal CSR team provides day-to-day oversight, evaluating proposals, engaging implementation partners, tracking project milestones, conducting field reviews, and maintaining progress and other documentation for review by the relevant company’s governance bodies. Pace Foundation, which was established by Pace Group, acts as an implementation partner, alongside other eligible partners where appropriate. Responsibility for CSR commitments, expenditure and disclosures always stays with the individual company, and every project is attributed to that company and its implementing organisation.
-              </p>
+        <div class="bosch-accordion-group" id="governanceAccordionGroup">
+          <!-- 1. GOVERNANCE AND OVERSIGHT -->
+          <div class="accordion-item dropdown-section" id="governance-oversight">
+            <button class="accordion-header main-dropdown-header" onclick="toggleDropdownSection('governance', event)" aria-expanded="false">
+              <h2 class="accordion-main-title">Governance and Oversight</h2>
+              <span class="accordion-arrow" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="accordion-collapse">
+              <div class="accordion-body governance-body-content">
+                <p>
+                  Pace Group’s shared CSR commitment is backed by clear accountability at each company level. Every participating company carries out its CSR activities under its own CSR Policy, approvals and legal obligations under Section 135 of the Companies Act, 2013, Schedule VII and the CSR Rules, as applicable; a common group identity does not replace the responsibilities of individual companies. The Board of each company approves its CSR Policy and expenditure, oversees implementation and ensures the required reporting and disclosures. Where applicable, a CSR Committee supports the Board by recommending the CSR Policy, expenditure and Annual Action Plan and by monitoring approved initiatives; where a separate committee is not required, the Board discharges these functions. The internal CSR team provides day-to-day oversight, evaluating proposals, engaging implementation partners, tracking project milestones, conducting field reviews, and maintaining progress and other documentation for review by the relevant company’s governance bodies. Pace Foundation, which was established by Pace Group, acts as an implementation partner, alongside other eligible partners where appropriate. Responsibility for CSR commitments, expenditure and disclosures always stays with the individual company, and every project is attributed to that company and its implementing organisation.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ==================== 2. STATUTORY DISCLOSURES (BOSCH-STYLE DROPDOWN) ==================== -->
-    <section class="section disclosures-section" id="statutory-disclosures">
-      <div class="container">
-        <div class="accordion-item dropdown-section" id="accordion-disclosures">
-          <button class="accordion-header main-dropdown-header" onclick="toggleDropdownSection('disclosures', event)" aria-expanded="false">
-            <h2 class="accordion-main-title">Statutory disclosures</h2>
-            <span class="accordion-arrow" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-            </span>
-          </button>
-          <div class="accordion-collapse">
-            <div class="accordion-body disclosures-body-content">
-              <p class="disclosures-lead-text">
-                In accordance with Section 135 of the Companies Act, 2013, and the applicable CSR Rules, Board-approved CSR Policies, Annual Action Plans, and CSR Committee compositions, as applicable, are publicly accessible below.
-              </p>
+          <!-- 2. STATUTORY DISCLOSURES -->
+          <div class="accordion-item dropdown-section" id="statutory-disclosures">
+            <button class="accordion-header main-dropdown-header" onclick="toggleDropdownSection('disclosures', event)" aria-expanded="false">
+              <h2 class="accordion-main-title">Statutory disclosures</h2>
+              <span class="accordion-arrow" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+            <div class="accordion-collapse">
+              <div class="accordion-body disclosures-body-content">
+                <p class="disclosures-lead-text">
+                  In accordance with Section 135 of the Companies Act, 2013, and the applicable CSR Rules, Board-approved CSR Policies, Annual Action Plans, and CSR Committee compositions, as applicable, are publicly accessible below.
+                </p>
 
-              <!-- Three tabs: Pace Digitek, LPPL, and PREPL -->
-              <div class="statutory-company-tabs" role="tablist" aria-label="Company Disclosures">
-                <button class="statutory-comp-btn active" id="btn-comp-pdl" role="tab" aria-selected="true" onclick="selectDisclosureCompany('pdl', event)">Pace Digitek</button>
-                <button class="statutory-comp-btn" id="btn-comp-lppl" role="tab" aria-selected="false" onclick="selectDisclosureCompany('lppl', event)">LPPL</button>
-                <button class="statutory-comp-btn" id="btn-comp-prepl" role="tab" aria-selected="false" onclick="selectDisclosureCompany('prepl', event)">PREPL</button>
-              </div>
-
-              <!-- When each tab is clicked, it shows the three tabs, which lead to the document. No sentences or explanations are required. -->
-              <div class="statutory-docs-display">
-                <!-- Panel 1: Pace Digitek -->
-                <div class="statutory-comp-panel active" id="panel-comp-pdl" role="tabpanel">
-                  <div class="document-links-group">
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-policy')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                      <span>CSR Policy</span>
-                    </button>
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-plan')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                      <span>Annual Action Plan</span>
-                    </button>
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-committee')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                      <span>CSR Committee Composition</span>
-                    </button>
-                  </div>
+                <!-- Three tabs: Pace Digitek, LPPL, and PREPL -->
+                <div class="statutory-company-tabs" role="tablist" aria-label="Company Disclosures">
+                  <button class="statutory-comp-btn active" id="btn-comp-pdl" role="tab" aria-selected="true" onclick="selectDisclosureCompany('pdl', event)">Pace Digitek</button>
+                  <button class="statutory-comp-btn" id="btn-comp-lppl" role="tab" aria-selected="false" onclick="selectDisclosureCompany('lppl', event)">LPPL</button>
+                  <button class="statutory-comp-btn" id="btn-comp-prepl" role="tab" aria-selected="false" onclick="selectDisclosureCompany('prepl', event)">PREPL</button>
                 </div>
 
-                <!-- Panel 2: LPPL -->
-                <div class="statutory-comp-panel" id="panel-comp-lppl" role="tabpanel">
-                  <div class="document-links-group">
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-policy')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                      <span>CSR Policy</span>
-                    </button>
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-plan')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                      <span>Annual Action Plan</span>
-                    </button>
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-committee')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                      <span>CSR Committee Composition</span>
-                    </button>
+                <!-- When each tab is clicked, it shows the three tabs, which lead to the document. No sentences or explanations are required. -->
+                <div class="statutory-docs-display">
+                  <!-- Panel 1: Pace Digitek -->
+                  <div class="statutory-comp-panel active" id="panel-comp-pdl" role="tabpanel">
+                    <div class="document-links-group">
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-policy')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        <span>CSR Policy</span>
+                      </button>
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-plan')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        <span>Annual Action Plan</span>
+                      </button>
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('pdl-committee')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span>CSR Committee Composition</span>
+                      </button>
+                    </div>
                   </div>
-                </div>
 
-                <!-- Panel 3: PREPL -->
-                <div class="statutory-comp-panel" id="panel-comp-prepl" role="tabpanel">
-                  <div class="document-links-group">
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-policy')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                      <span>CSR Policy</span>
-                    </button>
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-plan')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                      <span>Annual Action Plan</span>
-                    </button>
-                    <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-committee')">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                      <span>CSR Committee Composition</span>
-                    </button>
+                  <!-- Panel 2: LPPL -->
+                  <div class="statutory-comp-panel" id="panel-comp-lppl" role="tabpanel">
+                    <div class="document-links-group">
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-policy')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        <span>CSR Policy</span>
+                      </button>
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-plan')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        <span>Annual Action Plan</span>
+                      </button>
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('lppl-committee')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span>CSR Committee Composition</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Panel 3: PREPL -->
+                  <div class="statutory-comp-panel" id="panel-comp-prepl" role="tabpanel">
+                    <div class="document-links-group">
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-policy')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        <span>CSR Policy</span>
+                      </button>
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-plan')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        <span>Annual Action Plan</span>
+                      </button>
+                      <button type="button" class="doc-link-tab" onclick="openDocModal('prepl-committee')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span>CSR Committee Composition</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -870,7 +869,9 @@
         if (e.preventDefault) e.preventDefault();
         if (e.stopPropagation) e.stopPropagation();
       }
-      var targetItem = document.getElementById('accordion-' + sectionKey);
+      var targetItem = document.getElementById(sectionKey) ||
+                       document.getElementById('accordion-' + sectionKey) ||
+                       document.getElementById(sectionKey === 'governance' ? 'governance-oversight' : 'statutory-disclosures');
       if (!targetItem) return;
 
       var isExpanded = targetItem.classList.toggle('active');

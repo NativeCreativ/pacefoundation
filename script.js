@@ -111,7 +111,9 @@ window.toggleDropdownSection = function(sectionKey, e) {
     if (e.preventDefault) e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
   }
-  const targetItem = document.getElementById('accordion-' + sectionKey);
+  const targetItem = document.getElementById(sectionKey) ||
+                     document.getElementById('accordion-' + sectionKey) ||
+                     document.getElementById(sectionKey === 'governance' ? 'governance-oversight' : 'statutory-disclosures');
   if (!targetItem) return;
 
   const isExpanded = targetItem.classList.toggle('active');

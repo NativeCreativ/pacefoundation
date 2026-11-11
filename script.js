@@ -505,6 +505,7 @@ function initPaceApp() {
   // Close modals on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      window.closeEntityModal();
       window.closeLightbox();
       window.closeDocModal();
     }

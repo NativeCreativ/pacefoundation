@@ -447,6 +447,10 @@ window.downloadDocSummary = function(docKey) {
 
 // ==================== APP INITIALIZER ====================
 function initPaceApp() {
+  // 0. Keep the footer copyright year current
+  const copyrightYear = document.getElementById('copyrightYear');
+  if (copyrightYear) copyrightYear.textContent = new Date().getFullYear();
+
   // 1. Sticky Header
   const header = document.getElementById('header');
   if (header) {

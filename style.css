@@ -5155,6 +5155,10 @@ button {
   color: #FF8A3D;
 }
 
+.site-footer .footer-bottom {
+  text-align: center;
+}
+
 @media (max-width: 640px) {
   .theme-accordion-header,
   .main-dropdown-header {
